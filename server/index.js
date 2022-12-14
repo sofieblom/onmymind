@@ -1,36 +1,34 @@
 const express = require("express");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 require("./database");
-
-// const dotenv = require("dotenv");
-// const mongoose = require("mongoose")
-
-
-// dotenv.config();
-
-// mongoose.set('strictQuery', true);
-// mongoose.connect(process.env.CONNECTION_STRING, () =>
-//   console.log("Database connected")
-// );
+const userRoute = require("./routes/userRoute")
 
 const app = express();
 const PORT = 5000;
 
-app.use(cors({ origin: true }));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(cors());
+// app.use(express.json());
+// app.use(express.urlencoded({
+//   extended: false
+// }));
 
-app.use((req, res, next) => {
-  console.log(req.method);
-  console.log(req.path);
-  next();
-});
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
+app.use(bodyParser.json());
 
-app.get('/api', (req, res) => {
-    console.log("Tjena")
-    res.send('Hello World!')
-  })
-  
-  app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`)
-  })
+app.get('/', (req, res) => {
+  console.log("Tjena")
+  res.send('Hello World!')
+})
+
+
+app.use("/user", userRoute);
+// app.use("/posts", postRoute);
+
+app.listen(PORT, () => {
+  console.log(`Server up and running on port ${PORT}`)
+})
