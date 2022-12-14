@@ -25,10 +25,10 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-
 app.use("/user", userRoute);
 // app.use("/posts", postRoute);
 
 app.listen(PORT, () => {
   console.log(`Server up and running on port ${PORT}`)
 })
+module.exports = app;
