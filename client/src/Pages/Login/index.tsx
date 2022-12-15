@@ -1,6 +1,8 @@
+import userEvent from "@testing-library/user-event";
 import axios from "axios";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.scss";
 
 interface Inputs {
@@ -16,22 +18,18 @@ export const Login = () => {
     watch,
     formState: { errors },
   } = useForm<Inputs>();
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = (data: any) => {
-    // setPasswordError(false);
-    // if (data.password === data.repeatPassword) {
-    //   const registerUser: Inputs = {
-    //     email: data.email,
-    //     password: data.password,
-    //   };
-    //   axios
-    //     .post("http://localhost:5000/user/", registerUser)
-    //     .then((response) => {
-    //       console.log(response.data);
-    //     });
-    // } else {
-    //   setPasswordError(true);
-    // }
+    if (data.email && data.password) {
+      const user = {
+        email: data.email,
+        password: data.password,
+      };
+      axios.post("http://localhost:5000/user/login", user).then((response) => {
+        navigate("/posts");
+      });
+    }
   };
 
   return (
@@ -65,6 +63,7 @@ export const Login = () => {
             name="password"
             type="password"
           />
+          <input type="submit" value="Create account" />
         </form>
       </div>
     </div>
