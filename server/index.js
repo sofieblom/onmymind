@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 require("./database");
 const userRoute = require("./routes/userRoute")
-// const forceAuthorize = require("./middlewares");
+const forceAuthorize = require("./middlewares");
 const passport = require("passport")
 const user = require("./routes/userRoute")
 const dotenv = require("dotenv");
@@ -25,10 +25,9 @@ app.use(
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
 })
 
-app.use((req,res,next) => {
+app.use((req, res, next) => {
   const {token} = req.cookies;
 
   if(token && jwt.verify(token, process.env.JWT_SECRET_KEY)){
@@ -39,12 +38,15 @@ app.use((req,res,next) => {
     res.locals.loggedIn = false;
   }
   next()
+  // forceAuthorize()
 })
+
+
 
 app.use(passport.initialize());
 require("./passport")(passport);
 app.use("/user", userRoute);
-// app.use("/posts", forceAuthorize postRoute);
+// app.use("/posts", forceAuthorize , postRoute);
 
 app.listen(PORT, () => {
   console.log(`Server up and running on port ${PORT}`)

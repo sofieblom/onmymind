@@ -66,7 +66,7 @@ const getUserById = async (req,res) => {
             message: "success",
             data: userById
         })
-    } catch(error) {
+    }catch(error) {
         res.send(500).json({
             message: error
         })
