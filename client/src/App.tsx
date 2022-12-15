@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
-import { Login } from "./Pages";
+import { Login } from "./Pages/Login";
+import { Register } from "./Pages/Register";
 
 function App() {
   const [testing, setTesting] = useState("");
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <>
+      <Register />
       <Login />
     </>
   );
