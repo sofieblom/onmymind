@@ -25,7 +25,6 @@ app.use(
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-  console.log("Tjena")
   res.send('Hello World!')
 })
 
