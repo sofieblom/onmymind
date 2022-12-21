@@ -7,17 +7,24 @@ const PostSchema = new Schema({
         require: true,
         ref: 'User'
     },
-    date: {
-        type: Date,
-        default: Date.now
-    },
+    // date: {
+    //     type: Date,
+    //     default: Date.now
+    // },
     title: {
         type: String, 
         require: true
     }, 
-    description: String, 
-    require: true
-})
+    text: {
+        type: String,
+        require: true
+    }
+
+},
+    {
+        timestamps: true
+    }
+)
 
 const User = mongoose.model("Post", PostSchema)
 module.exports = User;
