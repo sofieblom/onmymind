@@ -1,40 +1,38 @@
-import { useEffect, useState } from "react";
-import logo from "./logo.svg";
+import { createContext, useEffect, useState } from "react";
 import "./App.css";
-import axios from "axios";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Login } from "./Pages/Login";
+import { Register } from "./Pages/Register";
+import { Home } from "./Pages/Home";
+import { CreatePost } from "./Pages/CreatePost";
 
 function App() {
-  const [testing, setTesting] = useState("");
-  const test = async () => {
-    axios.get("http://localhost:5000/api").then((response) => {
-      setTesting(response.data);
-    });
+  const [id, setId] = useState("");
+  const [email, setEmail] = useState("");
+
+  const getUser = (id: string, email: string) => {
+    setId(id);
+    setEmail(email);
   };
 
-  console.log("testing", testing);
-
-  useEffect(() => {
-    test();
-  }, []);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Login getUser={getUser} />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/posts/create-new" element={<CreatePost />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
+}
+
+interface UserType {
+  email: string;
+  _id: string;
+  token: string;
 }
 
 export default App;
