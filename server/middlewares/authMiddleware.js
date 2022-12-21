@@ -2,31 +2,20 @@ const jwt = require("jsonwebtoken")
 const User = require("../models/UserModel.js")
 
 const protect = async (req,res,next) => {
-    let token;
+    const token = req.headers['x-api-token'];
 
-    if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
-        try{
-            // get token from header
-            token = req.headers.authorization.split(' ')[1]
+    try{
+        // verify token
+        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY)
+        console.log("decoded", decoded)
+        // get user from the token
+        req.user = await User.findById(decoded.id).select('-password')
 
-            // verify token
-            const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY)
+        next()
 
-            // get user from the token
-            req.user = await User.findById(decoded.id).select('-password')
-
-            next()
-
-        }catch(error){
-            console.log(error)
-            res.status(401)
-            throw new Error ('Not authorized')
-        }
-    }
-
-    if(!token){
-        res.status(401)
-        throw new Error ('No autorized, no token')
+    }catch(error){
+        console.log(error)
+        res.sendStatus(401)
     }
 }
 

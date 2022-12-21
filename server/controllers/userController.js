@@ -31,7 +31,6 @@ function postNewUser(req,res) {
             newUser.save().then(user => res.json({
                 _id: user.id,
                 email: user.email,
-                token: generateToken(user._id)
             })).catch(err => console.log(err))
         })    
     })  
@@ -70,11 +69,12 @@ const loginUser = async (req, res) => {
 
         bcrypt.compare(password, user.password).then(isMatch => {
             if(isMatch) {
-                res.json({
+                res.status(200).json({
                     _id: user._id,
                     email: user.email,
                     token: generateToken(user._id)
                 })
+              
             }else {
                 console.log("inncorrect password")
                 res.status(400)
