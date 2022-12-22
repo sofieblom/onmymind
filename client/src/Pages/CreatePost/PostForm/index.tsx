@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 
 const schema = yup.object().shape({
   title: yup.string().required(),
-  text: yup.string().required(),
+  content: yup.string().required(),
 });
 
 export const PostForm = ({ onSubmit }: PostFormProps) => {
@@ -32,11 +32,11 @@ export const PostForm = ({ onSubmit }: PostFormProps) => {
       <p>{errors.title?.message}</p>
 
       <textarea
-        {...register("text")}
+        {...register("content")}
         placeholder="What's on your mind?"
-        name="text"
+        name="content"
       />
-      <p>{errors.text?.message}</p>
+      <p>{errors.content?.message}</p>
 
       <input type="submit" value="Save" />
     </form>
@@ -45,7 +45,7 @@ export const PostForm = ({ onSubmit }: PostFormProps) => {
 
 export interface IFormPostInputs {
   title: string;
-  text: string;
+  content: string;
 }
 
 interface PostFormProps {

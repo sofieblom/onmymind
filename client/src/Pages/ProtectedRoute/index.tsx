@@ -1,10 +1,11 @@
 import { Navigate, Outlet } from "react-router-dom";
 
 export const ProtectedRoute = ({
-  authorized,
+  authenticated,
   children,
 }: ProtectedRouteProps) => {
-  if (!authorized) {
+  if (!authenticated) {
+    console.log("AUTH", authenticated);
     console.log("DU HAR EJ TILLTRÄDE");
     return <Navigate to="/" replace />;
   }
@@ -12,6 +13,6 @@ export const ProtectedRoute = ({
 };
 
 interface ProtectedRouteProps {
-  authorized: string | null;
+  authenticated: string | null;
   children?: any;
 }

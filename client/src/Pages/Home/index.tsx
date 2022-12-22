@@ -30,5 +30,5 @@ export const Home = () => {
 
 interface PostType {
   title: string;
-  text: string;
+  content: string;
 }

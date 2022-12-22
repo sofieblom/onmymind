@@ -12,7 +12,7 @@ import { NotFound } from "./Pages/NotFound";
 function App() {
   const [id, setId] = useState("");
   const [email, setEmail] = useState("");
-  const authorized = localStorage.getItem("token" || "");
+  const authenticated = localStorage.getItem("token" || "");
 
   const getUser = (id: string, email: string) => {
     setId(id);
@@ -27,7 +27,7 @@ function App() {
           <Route path="/" element={<Login getUser={getUser} />} />
           <Route path="/not-found" element={<NotFound />} />
           <Route path="/" element={<Layout />}>
-            <Route element={<ProtectedRoute authorized={authorized} />}>
+            <Route element={<ProtectedRoute authenticated={authenticated} />}>
               <Route path="/home" element={<Home />} />
               <Route path="/posts/create-new" element={<CreatePost />} />
             </Route>

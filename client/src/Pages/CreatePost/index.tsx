@@ -10,7 +10,7 @@ export const CreatePost = () => {
     if (data) {
       const newPost: IFormPostInputs = {
         title: data.title,
-        text: data.text,
+        content: data.content,
       };
       const token = localStorage.getItem("token");
 
