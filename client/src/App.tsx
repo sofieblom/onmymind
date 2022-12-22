@@ -5,6 +5,7 @@ import { Login } from "./Pages/Login";
 import { Register } from "./Pages/Register";
 import { Home } from "./Pages/Home";
 import { CreatePost } from "./Pages/CreatePost";
+import { Layout } from "./components/Input/Layout";
 
 function App() {
   const [id, setId] = useState("");
@@ -21,8 +22,10 @@ function App() {
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Login getUser={getUser} />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/posts/create-new" element={<CreatePost />} />
+          <Route path="/" element={<Layout />}>
+            <Route path="/home" element={<Home />} />
+            <Route path="/posts/create-new" element={<CreatePost />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
