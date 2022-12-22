@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Login } from "./Pages/Login";
@@ -6,10 +6,13 @@ import { Register } from "./Pages/Register";
 import { Home } from "./Pages/Home";
 import { CreatePost } from "./Pages/CreatePost";
 import { Layout } from "./components/Input/Layout";
+import { ProtectedRoute } from "./Pages/ProtectedRoute";
+import { NotFound } from "./Pages/NotFound";
 
 function App() {
   const [id, setId] = useState("");
   const [email, setEmail] = useState("");
+  const authorized = localStorage.getItem("token" || "");
 
   const getUser = (id: string, email: string) => {
     setId(id);
@@ -22,9 +25,12 @@ function App() {
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Login getUser={getUser} />} />
+          <Route path="/not-found" element={<NotFound />} />
           <Route path="/" element={<Layout />}>
-            <Route path="/home" element={<Home />} />
-            <Route path="/posts/create-new" element={<CreatePost />} />
+            <Route element={<ProtectedRoute authorized={authorized} />}>
+              <Route path="/home" element={<Home />} />
+              <Route path="/posts/create-new" element={<CreatePost />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>

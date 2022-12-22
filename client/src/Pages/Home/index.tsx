@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const [posts, setPosts] = useState<PostType[]>([]);
@@ -26,10 +27,6 @@ export const Home = () => {
     </div>
   );
 };
-
-// interface PostsType {
-//   PostType: []
-// }
 
 interface PostType {
   title: string;
