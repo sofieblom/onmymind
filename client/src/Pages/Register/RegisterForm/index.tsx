@@ -3,16 +3,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./styles.module.scss";
 
-export interface IFormInputs {
-  firstname: string;
-  lastname: string;
-  email: string;
-  password: string;
-  repeatPassword?: string;
-}
-interface FormProps {
-  onSubmit: (data: IFormInputs) => void;
-}
 const schema = yup.object().shape({
   firstname: yup.string().required(),
   lastname: yup.string().required(),
@@ -21,7 +11,7 @@ const schema = yup.object().shape({
   repeatPassword: yup.string().oneOf([yup.ref("password"), null]),
 });
 
-export const Form = ({ onSubmit }: FormProps) => {
+export const RegisterForm = ({ onSubmit }: FormProps) => {
   const {
     register,
     handleSubmit,
@@ -80,3 +70,14 @@ export const Form = ({ onSubmit }: FormProps) => {
     </form>
   );
 };
+
+export interface IFormInputs {
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
+  repeatPassword?: string;
+}
+interface FormProps {
+  onSubmit: (data: IFormInputs) => void;
+}

@@ -1,8 +1,8 @@
 import axios from "axios";
 import { SubmitHandler } from "react-hook-form";
-import { Form } from "./Form";
+import { RegisterForm } from "./RegisterForm";
 import styles from "./styles.module.scss";
-import { IFormInputs } from "./Form";
+import { IFormInputs } from "./RegisterForm";
 
 export const Register = () => {
   const onSubmit: SubmitHandler<IFormInputs> = (data: any) => {
@@ -25,7 +25,7 @@ export const Register = () => {
   return (
     <div>
       <div className={styles.contianer}>
-        <Form onSubmit={onSubmit} />
+        <RegisterForm onSubmit={onSubmit} />
       </div>
     </div>
   );
