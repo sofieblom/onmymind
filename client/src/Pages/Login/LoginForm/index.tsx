@@ -2,6 +2,7 @@ import styles from "./styles.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { Input } from "../../../components/Input/Input";
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -29,6 +30,7 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
         name="email"
         type="text"
       />
+
       <p> {errors.email?.message}</p>
 
       <input
