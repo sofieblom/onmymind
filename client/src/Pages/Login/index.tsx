@@ -46,39 +46,34 @@ export const Login = ({ getUser }: LoginProps) => {
   }, [onSubmit]);
 
   return (
-    <div>
-      <div className={styles.contianer}>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className={styles.formContainer}
-        >
-          <input
-            {...register("email", {
-              required: true,
-              pattern: {
-                value:
-                  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                message: "Invalid email address",
-              },
-            })}
-            placeholder="Email"
-            name="email"
-            type="text"
-          />
-          {errors.email?.type === "required" ? (
-            <p>Email is required</p>
-          ) : (
-            errors.email && <p>{errors.email.message}</p>
-          )}
-          <input
-            {...register("password", { required: true, min: 6 })}
-            placeholder="password"
-            name="password"
-            type="password"
-          />
-          <input type="submit" value="Log in" />
-        </form>
-      </div>
+    <div className={styles.contianer}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.formContainer}>
+        <input
+          {...register("email", {
+            required: true,
+            pattern: {
+              value:
+                /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+              message: "Invalid email address",
+            },
+          })}
+          placeholder="Email"
+          name="email"
+          type="text"
+        />
+        {errors.email?.type === "required" ? (
+          <p>Email is required</p>
+        ) : (
+          errors.email && <p>{errors.email.message}</p>
+        )}
+        <input
+          {...register("password", { required: true, min: 6 })}
+          placeholder="password"
+          name="password"
+          type="password"
+        />
+        <input type="submit" value="Log in" />
+      </form>
     </div>
   );
 };
