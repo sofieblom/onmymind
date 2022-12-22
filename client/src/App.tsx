@@ -25,7 +25,7 @@ function App() {
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Login getUser={getUser} />} />
-          <Route path="/not-found" element={<NotFound />} />
+          <Route path="/*" element={<NotFound />} />
           <Route path="/" element={<Layout />}>
             <Route element={<ProtectedRoute authenticated={authenticated} />}>
               <Route path="/home" element={<Home />} />
