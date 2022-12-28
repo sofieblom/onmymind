@@ -10,7 +10,8 @@ const newPost = async (req, res) => {
     const post = await Post.create({
         user: req.user.id,
         title: req.body.title,
-        content: req.body.content
+        content: req.body.content,
+        creationDate: req.body.date
     })
 
     post.save().then(post => res.json({
@@ -32,4 +33,26 @@ const getPosts = async (req, res) => {
     
 }
 
-module.exports = {getPosts, newPost}
+const getSinglePost = async (req,res) => {
+    const id = req.params.id;
+    const post = await Post.findById( {_id: id})
+    console.log(post)
+    res.send(post)
+}
+
+const editPost = async (req, res) => {
+    const id = req.params.id;
+    await Post.findByIdAndUpdate(
+        {
+            _id: id,
+        },
+        {
+            title: req.body.title,
+            content: req.body.content,
+            creationDate: req.body.creationDate
+        }
+    );
+    res.redirect("http://localhost:3000/post/", _id)
+}
+
+module.exports = {getPosts, newPost, getSinglePost, editPost}
