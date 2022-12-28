@@ -17,7 +17,9 @@ const PostSchema = new Schema({
     },
     creationDate: {
         type: Date,
-        default: Date.now
+        require: true
+
+        // default: Date.now
     }
 
 },

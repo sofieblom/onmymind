@@ -2,6 +2,7 @@ const User = require("../models/UserModel.js");
 const Post = require("../models/PostModel.js");
 
 const newPost = async (req, res) => {
+    console.log("req BODY",req.body)
     if(!req.body.title || !req.body.content) {
         res.status(400)
         throw new Error('Please enter all fields')
@@ -11,7 +12,7 @@ const newPost = async (req, res) => {
         user: req.user.id,
         title: req.body.title,
         content: req.body.content,
-        creationDate: req.body.date
+        creationDate: req.body.creationDate
     })
 
     post.save().then(post => res.json({
