@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { SubmitHandler } from "react-hook-form";
 import { IFormPostInputs } from "./PostForm";
 import axios from "axios";
+import { date } from "yup";
 
 export const CreatePost = () => {
   const onSubmit: SubmitHandler<IFormPostInputs> = (data: IFormPostInputs) => {
@@ -10,7 +11,8 @@ export const CreatePost = () => {
       const newPost: IFormPostInputs = {
         title: data.title,
         content: data.content,
-        creationDate: data.creationDate.toString(),
+        creationDate: data.creationDate,
+        // creationDate: new Date(data.creationDate),
       };
       const token = localStorage.getItem("token");
 
@@ -19,7 +21,7 @@ export const CreatePost = () => {
           headers: { "x-api-token": token },
         })
         .then((response) => {
-          console.log(response.data);
+          console.log("RESPONSE", response.data);
         });
     }
   };

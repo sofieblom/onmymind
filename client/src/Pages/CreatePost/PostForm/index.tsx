@@ -1,13 +1,15 @@
-import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./styles.module.scss";
-
 import { useState } from "react";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
-const schema = yup.object().shape({
+export const schema = yup.object().shape({
   title: yup.string().required(),
   content: yup.string().required(),
+  creationDate: yup.string().required(),
 });
 
 export const PostForm = ({ onSubmit }: PostFormProps) => {
@@ -19,7 +21,6 @@ export const PostForm = ({ onSubmit }: PostFormProps) => {
   } = useForm<IFormPostInputs>({
     resolver: yupResolver(schema),
   });
-  const [date, setDate] = useState(new Date());
 
   const handleData = (data: IFormPostInputs) => {
     onSubmit(data);
@@ -34,8 +35,14 @@ export const PostForm = ({ onSubmit }: PostFormProps) => {
         type="text"
       />
       <p>{errors.title?.message}</p>
-      <input {...register("creationDate")} name="creationDate" type="date" />
+      {/* <input {...register("creationDate")} name="creationDate" type="date" /> */}
 
+      <Controller
+        control={control}
+        name="creationDate"
+        rules={{ required: "You have to choose a date" }}
+        render={({ field: { onChange } }) => <Calendar onChange={onChange} />}
+      />
       <textarea
         {...register("content")}
         placeholder="What's on your mind?"

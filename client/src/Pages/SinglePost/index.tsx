@@ -29,7 +29,6 @@ export const SinglePost = () => {
 
   const handleEdit = () => {
     navigate("/post/edit/" + params.id);
-    return <EditPost post={post} />;
   };
 
   return (
@@ -38,7 +37,8 @@ export const SinglePost = () => {
       <button>Delete</button>
       <h1>{post?.title}</h1>
       <p>{post?.content}</p>
-      <p>{post?.creationDate.split("T")[0]}</p>
+      {/* <p>{post?.creationDate.split("T")[0]}</p> */}
+      <p>{post?.creationDate}</p>
     </div>
   );
 };

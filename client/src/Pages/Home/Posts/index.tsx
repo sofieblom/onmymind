@@ -10,7 +10,10 @@ export const Posts = ({ posts }: PostsProps) => {
           <Link to={"/post/" + post._id}>
             <h4>{post.title}</h4>
             <p>{post.content}</p>
-            <p>{post.creationDate.split("T")[0]}</p>
+            {/* <p>{post.creationDate.split("T")[0]}</p> */}
+
+            <p>{post.creationDate}</p>
+
             <p>{post.creationDate}</p>
           </Link>
         </div>
