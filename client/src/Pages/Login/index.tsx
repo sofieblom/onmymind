@@ -10,20 +10,27 @@ export const Login = ({ getUser }: LoginProps) => {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<InputsType> = (data: InputsType) => {
+  const onSubmit: SubmitHandler<InputsType> = async (data: InputsType) => {
     if (data.email && data.password) {
       const user = {
         email: data.email,
         password: data.password,
       };
 
-      axios.post("http://localhost:5000/user/login", user).then((response) => {
-        localStorage.setItem("token", response.data.token);
-        console.log("RESPONSE", response);
-        setId(response.data._id);
-        setEmail(response.data.email);
-        navigate("/home");
-      });
+      await axios
+        .post("http://localhost:5000/user/login", user)
+        .then((response) => {
+          if (response.status === 200) {
+            localStorage.setItem("token", response.data.token);
+            console.log("RESPONSE RESPONSE", response);
+            setId(response.data._id);
+            setEmail(response.data.email);
+            navigate("/home");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   };
 

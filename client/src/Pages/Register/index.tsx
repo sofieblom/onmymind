@@ -6,7 +6,6 @@ import { IFormInputs } from "./RegisterForm";
 
 export const Register = () => {
   const onSubmit: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
-    console.log("data:", data);
     if (data) {
       const registerUser: IFormInputs = {
         firstname: data.firstname,

@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import { Posts } from "./Posts";
+import styles from "./styles.module.scss";
 
 export const Home = () => {
   const [posts, setPosts] = useState<PostType[]>([]);
-  console.log("posts", posts);
 
   const getPosts = async () => {
     const token = localStorage.getItem("token");
@@ -22,13 +23,15 @@ export const Home = () => {
   }, []);
 
   return (
-    <div>
-      <h1>this is home</h1>
+    <div className={styles.container}>
+      <Posts posts={posts} />
     </div>
   );
 };
 
-interface PostType {
+export interface PostType {
+  _id: string;
   title: string;
   content: string;
+  creationDate: string;
 }

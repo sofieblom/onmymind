@@ -31,7 +31,7 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
         type="text"
       />
 
-      <p> {errors.email?.message}</p>
+      <p className={styles.error}> {errors.email?.message}</p>
 
       <input
         {...register("password")}
@@ -39,7 +39,7 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
         name="password"
         type="password"
       />
-      <p>{errors.password?.message}</p>
+      <p className={styles.error}>{errors.password?.message}</p>
       <input type="submit" value="Log in" />
     </form>
   );

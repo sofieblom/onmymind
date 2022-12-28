@@ -32,7 +32,7 @@ export const RegisterForm = ({ onSubmit }: FormProps) => {
         name="firstname"
         type="text"
       />
-      <p>{errors.firstname?.message}</p>
+      <p className={styles.error}>{errors.firstname?.message}</p>
 
       <input
         {...register("lastname")}
@@ -40,14 +40,14 @@ export const RegisterForm = ({ onSubmit }: FormProps) => {
         name="lastname"
         type="text"
       />
-      <p>{errors.lastname?.message}</p>
+      <p className={styles.error}>{errors.lastname?.message}</p>
       <input
         {...register("email")}
         placeholder="Email"
         name="email"
         type="text"
       />
-      <p>{errors.email?.message}</p>
+      <p className={styles.error}>{errors.email?.message}</p>
 
       <input
         {...register("password")}
@@ -61,7 +61,7 @@ export const RegisterForm = ({ onSubmit }: FormProps) => {
         name="repeatPassword"
         type="password"
       />
-      <p>
+      <p className={styles.error}>
         {errors.password?.message ||
           (errors.repeatPassword && "Passwords must match")}
       </p>

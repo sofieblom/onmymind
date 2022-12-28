@@ -15,12 +15,17 @@ export const Layout = () => {
         <nav>
           <ul>
             <li>
+              <Link to="/home">
+                <h3>MY POSTS</h3>
+              </Link>
+            </li>
+            <li>
               <Link to="/posts/create-new">
-                <h3>NY POST</h3>
+                <h3>NEW POST</h3>
               </Link>
             </li>
             <li onClick={handleLogOut}>
-              <h3>LOGGA UT</h3>
+              <h3>LOG OUT</h3>
             </li>
           </ul>
         </nav>

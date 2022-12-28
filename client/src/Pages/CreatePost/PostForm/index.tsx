@@ -1,7 +1,9 @@
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./styles.module.scss";
+
+import { useState } from "react";
 
 const schema = yup.object().shape({
   title: yup.string().required(),
@@ -11,11 +13,13 @@ const schema = yup.object().shape({
 export const PostForm = ({ onSubmit }: PostFormProps) => {
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm<IFormPostInputs>({
     resolver: yupResolver(schema),
   });
+  const [date, setDate] = useState(new Date());
 
   const handleData = (data: IFormPostInputs) => {
     onSubmit(data);
@@ -30,6 +34,7 @@ export const PostForm = ({ onSubmit }: PostFormProps) => {
         type="text"
       />
       <p>{errors.title?.message}</p>
+      <input {...register("creationDate")} name="creationDate" type="date" />
 
       <textarea
         {...register("content")}
@@ -46,6 +51,7 @@ export const PostForm = ({ onSubmit }: PostFormProps) => {
 export interface IFormPostInputs {
   title: string;
   content: string;
+  creationDate: any;
 }
 
 interface PostFormProps {

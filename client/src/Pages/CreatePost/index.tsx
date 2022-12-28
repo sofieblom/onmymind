@@ -6,11 +6,11 @@ import axios from "axios";
 
 export const CreatePost = () => {
   const onSubmit: SubmitHandler<IFormPostInputs> = (data: IFormPostInputs) => {
-    console.log("data:", data);
     if (data) {
       const newPost: IFormPostInputs = {
         title: data.title,
         content: data.content,
+        creationDate: data.creationDate.toString(),
       };
       const token = localStorage.getItem("token");
 
