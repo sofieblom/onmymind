@@ -2,12 +2,36 @@ import axios from "axios";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { PostType } from "../../Home";
-import { IFormPostInputs, schema } from "../../CreatePost/PostForm";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
 import styles from "./styles.module.scss";
+import * as yup from "yup";
+import { IFormPostInputs } from "../../CreatePost/PostForm";
+
+export const schema = yup.object().shape({
+  title: yup.string().when("post", {
+    is: true,
+    then: yup.string().required("Do not leave empty"),
+  }),
+
+  content: yup.string().when("post", {
+    is: true,
+    then: yup.string().required("Do not leave empty"),
+  }),
+  creationDate: yup.string().when("post", {
+    is: true,
+    then: yup.string().required("Choose a date"),
+  }),
+});
 
 export const EditPost = () => {
+  const [currentPost, setCurrentPost] = useState({
+    title: "",
+    content: "",
+    creationDate: "",
+  });
+  const [post, setPost] = useState(false);
+
   const {
     register,
     control,
@@ -16,16 +40,12 @@ export const EditPost = () => {
   } = useForm<IFormPostInputs>({
     resolver: yupResolver(schema),
   });
+
   const params = useParams();
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
-  const [currentPost, setCurrentPost] = useState({
-    title: "",
-    content: "",
-    creationDate: "",
-  });
-
+  console.log("CURRENT POST", currentPost);
   useEffect(() => {
     axios
       .get(`http://localhost:5000/posts/${params.id}`, {
@@ -37,17 +57,15 @@ export const EditPost = () => {
           setCurrentPost({
             title: response.data.title,
             content: response.data.content,
-            // creationDate: response.data.creationDate.split("T")[0],
-            creationDate: response.data.creationDate,
+            creationDate: response.data.creationDate.split("T")[0],
           });
+          setPost(true);
         }
       })
       .catch((error) => {
         console.log(error);
       });
   }, [params]);
-
-  console.log("currentpost", currentPost);
 
   const onSubmit: SubmitHandler<IFormPostInputs> = (data: IFormPostInputs) => {
     if (data) {
@@ -62,6 +80,7 @@ export const EditPost = () => {
           headers: { "x-api-token": token },
         })
         .then((response) => {
+          navigate(`/post/${params.id}`);
           console.log(response.data);
         });
     }
