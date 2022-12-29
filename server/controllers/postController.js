@@ -56,4 +56,12 @@ const editPost = async (req, res) => {
     res.redirect("http://localhost:3000/post/", _id)
 }
 
-module.exports = {getPosts, newPost, getSinglePost, editPost}
+const deletePost = async (req, res) => {
+    console.log("rew body delete", req.body)
+    const id = req.params.id;
+
+    await Post.findById(id).deleteOne()
+    res.status(200).send()
+}
+
+module.exports = {getPosts, newPost, getSinglePost, editPost, deletePost}
