@@ -1,0 +1,38 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper {
+  width: 100%;
+  // border-radius: 50px;
+  padding: 16px;
+  margin: 8px;
+  background-color: rgb(237, 236, 235);
+  height: 170px;
+}
+
+.flex {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+a,
+a:visited {
+  color: inherit;
+}
+
+.dateContainer {
+  width: 30%;
+  height: 150px;
+}
+
+.contentContainer {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}

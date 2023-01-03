@@ -7,23 +7,25 @@ const PostSchema = new Schema({
         require: true,
         ref: 'User'
     },
-    // date: {
-    //     type: Date,
-    //     default: Date.now
-    // },
     title: {
         type: String, 
         require: true
     }, 
-    text: {
+    content: {
         type: String,
         require: true
+    },
+    creationDate: {
+        type: Date,
+        require: true
+
+        // default: Date.now
     }
 
 },
-    {
-        timestamps: true
-    }
+    // {
+    //     timestamps: true
+    // }
 )
 
 const User = mongoose.model("Post", PostSchema)

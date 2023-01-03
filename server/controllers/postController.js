@@ -2,7 +2,8 @@ const User = require("../models/UserModel.js");
 const Post = require("../models/PostModel.js");
 
 const newPost = async (req, res) => {
-    if(!req.body.title || !req.body.text) {
+    console.log("req BODY",req.body)
+    if(!req.body.title || !req.body.content) {
         res.status(400)
         throw new Error('Please enter all fields')
     }
@@ -10,7 +11,8 @@ const newPost = async (req, res) => {
     const post = await Post.create({
         user: req.user.id,
         title: req.body.title,
-        text: req.body.text
+        content: req.body.content,
+        creationDate: req.body.creationDate
     })
 
     post.save().then(post => res.json({
@@ -32,4 +34,34 @@ const getPosts = async (req, res) => {
     
 }
 
-module.exports = {getPosts, newPost}
+const getSinglePost = async (req,res) => {
+    const id = req.params.id;
+    const post = await Post.findById( {_id: id})
+    console.log(post)
+    res.send(post)
+}
+
+const editPost = async (req, res) => {
+    const id = req.params.id;
+    await Post.findByIdAndUpdate(
+        {
+            _id: id,
+        },
+        {
+            title: req.body.title,
+            content: req.body.content,
+            creationDate: req.body.creationDate
+        }
+    );
+    res.status(200).send()
+}
+
+const deletePost = async (req, res) => {
+    console.log("rew body delete", req.body)
+    const id = req.params.id;
+
+    await Post.findById(id).deleteOne()
+    res.status(200).send()
+}
+
+module.exports = {getPosts, newPost, getSinglePost, editPost, deletePost}
