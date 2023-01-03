@@ -53,7 +53,7 @@ const editPost = async (req, res) => {
             creationDate: req.body.creationDate
         }
     );
-    res.redirect("http://localhost:3000/post/", _id)
+    res.status(200).send()
 }
 
 const deletePost = async (req, res) => {
