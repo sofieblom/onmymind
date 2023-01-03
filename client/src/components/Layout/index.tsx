@@ -1,18 +1,20 @@
+import { useEffect, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import { HamburgerMeny } from "../HamburgerMenu";
 import styles from "./styles.module.scss";
 
 export const Layout = () => {
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleLogOut = () => {
     localStorage.removeItem("token");
     navigate("/");
   };
-
   return (
     <>
       <div className={styles.header}>
-        <nav>
+        <nav className={styles.nav}>
           <ul>
             <li>
               <Link to="/home">
@@ -29,8 +31,21 @@ export const Layout = () => {
             </li>
           </ul>
         </nav>
+        <div className={styles.hamburgerMenu}>
+          <HamburgerMeny
+            handleLogOut={handleLogOut}
+            setIsOpen={setIsOpen}
+            isOpen={isOpen}
+          />
+        </div>
       </div>
-      <Outlet></Outlet>
+      {isOpen ? (
+        <div className={styles.open}>
+          <Outlet />
+        </div>
+      ) : (
+        <Outlet />
+      )}
     </>
   );
 };

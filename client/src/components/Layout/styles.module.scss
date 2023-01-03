@@ -4,9 +4,12 @@
 }
 
 nav {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0px 16px;
+  display: none;
+  @media screen and (min-width: 769px) {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px 16px;
+  }
 }
 
 li {
@@ -30,4 +33,16 @@ ul {
   list-style-type: none;
   padding: 0px;
   margin: 0px;
+}
+
+.hamburgerMenu {
+  width: 100%;
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+}
+
+.open {
+  display: none;
 }
