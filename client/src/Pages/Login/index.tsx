@@ -40,6 +40,7 @@ export const Login = ({ getUser }: LoginProps) => {
 
   return (
     <div className={styles.contianer}>
+      <h1 className={styles.heading}>Journal of today</h1>
       <LoginForm onSubmit={onSubmit} />
     </div>
   );

@@ -1,1 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Inspiration&display=swap");
+
+// fonts
+$heading-font: "Inspiration", cursive;
+
+// colors
 $dark-bg-color: #242424;
+$white-bg-color: #f8f8f8;
+$input-bg-color: #f1f1f1;
+$green-button: #8caa91;
+
+// max-width media-query
+$mobile: 480px;
+$tablet: 768px;
+$small-screen: 1024px;
+$medium-screen: 1200px;
+
+$spacing: 16px;

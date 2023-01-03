@@ -1,6 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Inspiration&display=swap");
+
 .contianer {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 16px;
   height: 100vh;
+}
+
+.heading {
+  color: #f8f8f8;
+  font-size: 3rem;
+  font-family: "Inspiration", cursive;
+  font-weight: lighter;
+  font-size: 5rem;
+  margin: 8px;
 }
