@@ -5,11 +5,12 @@ import { Login } from "./Pages/Login";
 import { Register } from "./Pages/Register";
 import { Home } from "./Pages/Home";
 import { CreatePost } from "./Pages/CreatePost";
-import { Layout } from "./components/Input/Layout";
+import { Layout } from "./components/Layout";
 import { ProtectedRoute } from "./Pages/ProtectedRoute";
 import { NotFound } from "./Pages/NotFound";
 import { SinglePost } from "./Pages/SinglePost";
 import { EditPost } from "./Pages/SinglePost/EditPost";
+import "./styles/variables.scss";
 
 function App() {
   const [id, setId] = useState("");

@@ -14,7 +14,6 @@ export const DeletePost = () => {
         headers: { "x-api-token": token },
       })
       .then((response) => {
-        console.log("delete response", response);
         navigate("/home");
       });
   };

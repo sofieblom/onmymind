@@ -4,6 +4,7 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { PostType } from "../Home";
 import { DeletePost } from "./DeletePost";
 import { EditPost } from "./EditPost";
+import styles from "./styles.module.scss";
 
 export const SinglePost = () => {
   let params = useParams();
@@ -32,13 +33,15 @@ export const SinglePost = () => {
   };
 
   return (
-    <div>
-      <button onClick={handleEdit}>Edit</button>
-      <button>Delete</button>
-      <h1>{post?.title}</h1>
-      <p>{post?.content}</p>
-      {/* <p>{post?.creationDate.split("T")[0]}</p> */}
-      <p>{post?.creationDate}</p>
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
+        <button onClick={handleEdit}>Edit</button>
+        <DeletePost />
+        <h1>{post?.title}</h1>
+        <p>{post?.content}</p>
+        <p>{post?.creationDate.split("T")[0]}</p>
+        {/* <p>{post?.creationDate}</p> */}
+      </div>
     </div>
   );
 };

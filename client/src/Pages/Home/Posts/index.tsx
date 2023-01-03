@@ -8,13 +8,15 @@ export const Posts = ({ posts }: PostsProps) => {
       {posts.map((post) => (
         <div className={styles.wrapper} key={post._id}>
           <Link to={"/post/" + post._id}>
-            <h4>{post.title}</h4>
-            <p>{post.content}</p>
-            {/* <p>{post.creationDate.split("T")[0]}</p> */}
-
-            <p>{post.creationDate}</p>
-
-            <p>{post.creationDate}</p>
+            <div className={styles.flex}>
+              <div className={styles.dateContainer}>
+                <p>{post.creationDate.split("T")[0]}</p>
+              </div>
+              <div className={styles.contentContainer}>
+                <h4>{post.title}</h4>
+                <p className={styles.content}>{post.content}</p>
+              </div>
+            </div>
           </Link>
         </div>
       ))}
