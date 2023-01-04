@@ -1,15 +1,32 @@
 import { TextField } from "@mui/material";
+import { grey } from "@mui/material/colors";
 import { forwardRef } from "react";
 
-export const Input = forwardRef(({ props, ref }: any) => {
+const styles = {
+  backgroundColor: grey,
+};
+
+interface Input {
+  placeholder: string;
+  name: string;
+  type: string;
+}
+
+export const InputField = ({ placeholder, name, type }: Input) => {
+  return <input placeholder={placeholder} name={name} type={type} />;
+};
+
+export const Input = forwardRef(({ props }: any) => {
   return (
     <>
       <TextField
         variant="outlined"
-        inputRef={ref}
+        // inputRef={ref}
+        error={props.error}
         margin="normal"
-        label="Title"
+        label={props.label}
         fullWidth
+        sx={styles}
         {...props}
       />
     </>

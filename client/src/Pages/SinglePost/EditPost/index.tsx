@@ -41,6 +41,11 @@ export const EditPost = () => {
     resolver: yupResolver(schema),
   });
 
+  // RENDER COUNT
+  let renderCount = 0;
+  renderCount++;
+  console.log("RENDERCOUNT EDIT", renderCount);
+
   const params = useParams();
   const navigate = useNavigate();
   const token = localStorage.getItem("token");

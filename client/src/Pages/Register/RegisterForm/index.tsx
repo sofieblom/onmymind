@@ -20,6 +20,11 @@ export const RegisterForm = ({ onSubmit }: FormProps) => {
     resolver: yupResolver(schema),
   });
 
+  // RENDER COUNT
+  let renderCount = 0;
+  renderCount++;
+  console.log("RENDERCOUNT", renderCount);
+
   const handleData = (data: IFormInputs) => {
     onSubmit(data);
   };

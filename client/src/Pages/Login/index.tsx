@@ -8,6 +8,9 @@ import { InputsType, LoginForm } from "./LoginForm";
 export const Login = ({ getUser }: LoginProps) => {
   const [id, setId] = useState("");
   const [email, setEmail] = useState("");
+  const [authEmailError, setAuthEmailError] = useState();
+  const [authPasswordError, setAuthPasswordError] = useState();
+
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<InputsType> = async (data: InputsType) => {
@@ -29,7 +32,9 @@ export const Login = ({ getUser }: LoginProps) => {
           }
         })
         .catch((error) => {
-          console.log(error);
+          setAuthEmailError(error.response.data.emailError);
+          setAuthPasswordError(error.response.data.passwordError);
+          console.log("ERROR", error);
         });
     }
   };
@@ -41,7 +46,11 @@ export const Login = ({ getUser }: LoginProps) => {
   return (
     <div className={styles.contianer}>
       <h1 className={styles.heading}>Journal of today</h1>
-      <LoginForm onSubmit={onSubmit} />
+      <LoginForm
+        onSubmit={onSubmit}
+        authEmailError={authEmailError}
+        authPasswordError={authPasswordError}
+      />
     </div>
   );
 };

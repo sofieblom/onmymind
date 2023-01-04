@@ -27,6 +27,11 @@ export const PostForm = ({ onSubmit }: PostFormProps) => {
   });
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
 
+  // RENDER COUNT
+  let renderCount = 0;
+  renderCount++;
+  console.log("RENDERCOUNT CREATE POST", renderCount);
+
   const handleData = (data: IFormPostInputs) => {
     onSubmit(data);
   };
