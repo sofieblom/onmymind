@@ -6,8 +6,8 @@ import { SubmitHandler } from "react-hook-form";
 import { InputsType, LoginForm } from "./LoginForm";
 
 export const Login = ({ getUser }: LoginProps) => {
-  const [id, setId] = useState("");
-  const [email, setEmail] = useState("");
+  // const [id, setId] = useState("");
+  // const [email, setEmail] = useState("");
   const [authEmailError, setAuthEmailError] = useState();
   const [authPasswordError, setAuthPasswordError] = useState();
 
@@ -26,8 +26,8 @@ export const Login = ({ getUser }: LoginProps) => {
           if (response.status === 200) {
             localStorage.setItem("token", response.data.token);
             console.log("RESPONSE RESPONSE", response);
-            setId(response.data._id);
-            setEmail(response.data.email);
+            // setId(response.data._id);
+            // setEmail(response.data.email);
             navigate("/home");
           }
         })
@@ -39,9 +39,9 @@ export const Login = ({ getUser }: LoginProps) => {
     }
   };
 
-  useEffect(() => {
-    getUser(id, email);
-  }, [onSubmit]);
+  // useEffect(() => {
+  //   getUser(id, email);
+  // }, [onSubmit]);
 
   return (
     <div className={styles.contianer}>

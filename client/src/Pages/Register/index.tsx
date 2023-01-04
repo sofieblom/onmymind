@@ -3,8 +3,11 @@ import { SubmitHandler } from "react-hook-form";
 import { RegisterForm } from "./RegisterForm";
 import styles from "./styles.module.scss";
 import { IFormInputs } from "./RegisterForm";
+import { useState } from "react";
 
 export const Register = () => {
+  const [emailError, setEmailError] = useState();
+
   const onSubmit: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
     if (data) {
       const registerUser: IFormInputs = {
@@ -17,6 +20,10 @@ export const Register = () => {
         .post("http://localhost:5000/user/register", registerUser)
         .then((response) => {
           console.log(response.data);
+        })
+        .catch((error) => {
+          setEmailError(error.response.data.email);
+          console.log(error);
         });
     }
   };
@@ -24,7 +31,9 @@ export const Register = () => {
   return (
     <div>
       <div className={styles.contianer}>
-        <RegisterForm onSubmit={onSubmit} />
+        <h1 className={styles.heading}>Journal of today</h1>
+
+        <RegisterForm onSubmit={onSubmit} emailError={emailError} />
       </div>
     </div>
   );

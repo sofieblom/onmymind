@@ -27,7 +27,6 @@ export const LoginForm = ({
   });
 
   const handleData = (data: InputsType) => {
-    console.log("DATA", data);
     onSubmit(data);
   };
 
@@ -47,10 +46,12 @@ export const LoginForm = ({
             className={styles.input}
           />
         </div>
-        <p className={styles.error}> {errors.email?.message}</p>
-        {authEmailError && !errors.email?.message && (
-          <p className={styles.error}>{authEmailError}</p>
-        )}
+        <div className={styles.errorWrapper}>
+          <p className={styles.error}> {errors.email?.message}</p>
+          {authEmailError && !errors.email?.message && (
+            <p className={styles.error}>{authEmailError}</p>
+          )}
+        </div>
 
         <div className={styles.wrapper}>
           <img src={key} width={20} />
@@ -63,10 +64,12 @@ export const LoginForm = ({
             className={styles.input}
           />
         </div>
-        <p className={styles.error}>{errors.password?.message}</p>
-        {authPasswordError && !errors.password?.message && (
-          <p className={styles.error}>{authPasswordError}</p>
-        )}
+        <div className={styles.errorWrapper}>
+          <p className={styles.error}>{errors.password?.message}</p>
+          {authPasswordError && !errors.password?.message && (
+            <p className={styles.error}>{authPasswordError}</p>
+          )}
+        </div>
         <SubmitButton>Log in</SubmitButton>
       </form>
 

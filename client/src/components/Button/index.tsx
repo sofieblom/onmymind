@@ -8,8 +8,9 @@ interface ButtonProps {
 const styles = {
   backgroundColor: "#8caa91",
   "&:hover": { backgroundColor: "#9ebda3" },
-  width: "120px",
+  minWidth: "120px",
   marginTop: "8px",
+  crusor: "pointer",
 };
 
 export const SubmitButton = ({ children }: ButtonProps) => {
