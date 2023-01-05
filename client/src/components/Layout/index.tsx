@@ -7,6 +7,16 @@ export const Layout = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth > 768) {
+        console.log("set is open to false");
+        setIsOpen(false);
+      }
+    }
+    window.addEventListener("resize", handleResize);
+  });
+
   const handleLogOut = () => {
     localStorage.removeItem("token");
     navigate("/");
