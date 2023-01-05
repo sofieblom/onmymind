@@ -10,7 +10,6 @@ export const Layout = () => {
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth > 768) {
-        console.log("set is open to false");
         setIsOpen(false);
       }
     }
