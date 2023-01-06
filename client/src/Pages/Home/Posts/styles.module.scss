@@ -11,6 +11,7 @@
   width: 300px;
   background-color: rgb(237, 236, 235);
   height: 170px;
+  position: relative;
 }
 
 .title {
@@ -28,6 +29,8 @@
   display: flex;
   gap: 16px;
   width: 100%;
+  position: absolute;
+  height: 100%;
 }
 
 a,
