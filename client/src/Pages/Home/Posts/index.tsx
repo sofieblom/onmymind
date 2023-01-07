@@ -37,7 +37,8 @@ export const Posts = ({ posts }: PostsProps) => {
                 <h4 className={styles.title}>{post.title}</h4>
                 {!tabletOrBigger && (
                   <p className={styles.dateOnMobile}>
-                    {post.creationDate.split("T")[0]}
+                    {/* {post.creationDate.split("T")[0]} */}
+                    {post.creationDate}
                   </p>
                 )}
                 <p className={styles.content}>{post.content}</p>

@@ -8,8 +8,8 @@ import styles from "./styles.module.scss";
 import Button from "@mui/material/Button";
 
 const btnStyles = {
-  backgroundColor: "#c9a22d",
-  "&:hover": { backgroundColor: "#deba4b" },
+  backgroundColor: "#8caa91",
+  "&:hover": { backgroundColor: "#9ebda3" },
   minWidth: "120px",
   marginRight: "8px",
   crusor: "pointer",
