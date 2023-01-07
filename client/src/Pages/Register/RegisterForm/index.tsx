@@ -5,6 +5,7 @@ import styles from "./styles.module.scss";
 import { SubmitButton } from "../../../components/Button";
 import xmark from "../../../assets/xmark.svg";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 
 const schema = yup.object().shape({
   firstname: yup.string().required(),
@@ -13,6 +14,14 @@ const schema = yup.object().shape({
   password: yup.string().min(6).required(),
   repeatPassword: yup.string().oneOf([yup.ref("password"), null]),
 });
+
+const btnStyles = {
+  backgroundColor: "#c32c2c",
+  "&:hover": { backgroundColor: "#cc3636" },
+  minWidth: "120px",
+  marginRight: "8px",
+  crusor: "pointer",
+};
 
 export const RegisterForm = ({ onSubmit, emailError }: FormProps) => {
   const {
@@ -106,7 +115,17 @@ export const RegisterForm = ({ onSubmit, emailError }: FormProps) => {
               (errors.repeatPassword && "Passwords must match")}
           </p>
         </div>
-        <SubmitButton>Create account</SubmitButton>
+        <div className={styles.btnWrapper}>
+          <Button
+            variant="contained"
+            type="submit"
+            sx={btnStyles}
+            onClick={() => navigate("/")}
+          >
+            Cancel
+          </Button>
+          <SubmitButton>Create account</SubmitButton>
+        </div>
       </form>
     </div>
   );
