@@ -22,12 +22,16 @@ export const LoginForm = ({
     control,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<InputsType>({
     resolver: yupResolver(schema),
   });
 
   const handleData = (data: InputsType) => {
-    onSubmit(data);
+    if (data) {
+      onSubmit(data);
+      reset();
+    }
   };
 
   return (

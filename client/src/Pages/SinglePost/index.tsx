@@ -5,6 +5,15 @@ import { PostType } from "../Home";
 import { DeletePost } from "./DeletePost";
 import { EditPost } from "./EditPost";
 import styles from "./styles.module.scss";
+import Button from "@mui/material/Button";
+
+const btnStyles = {
+  backgroundColor: "#c9a22d",
+  "&:hover": { backgroundColor: "#deba4b" },
+  minWidth: "120px",
+  marginRight: "8px",
+  crusor: "pointer",
+};
 
 export const SinglePost = () => {
   let params = useParams();
@@ -35,12 +44,18 @@ export const SinglePost = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <button onClick={handleEdit}>Edit</button>
-        <DeletePost />
         <h1>{post?.title}</h1>
         <p>{post?.content}</p>
         <p>{post?.creationDate.split("T")[0]}</p>
-        {/* <p>{post?.creationDate}</p> */}
+        <Button
+          variant="contained"
+          type="submit"
+          sx={btnStyles}
+          onClick={handleEdit}
+        >
+          Edit
+        </Button>
+        <DeletePost />
       </div>
     </div>
   );

@@ -19,13 +19,17 @@ export const RegisterForm = ({ onSubmit, emailError }: FormProps) => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<IFormInputs>({
     resolver: yupResolver(schema),
   });
   const navigate = useNavigate();
 
   const handleData = (data: IFormInputs) => {
-    onSubmit(data);
+    if (data) {
+      onSubmit(data);
+      reset();
+    }
   };
 
   const handleOnClick = () => {

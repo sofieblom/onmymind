@@ -10,18 +10,16 @@ export const Posts = ({ posts }: PostsProps) => {
 
   // const postRef = useRef(null);
 
-  useEffect(() => {});
-
   const handleMouseEnter = (id: string) => {
     setCurrentPost(id);
-    console.log("ENTER");
     // setIsHovered(true);
   };
 
   const handleMouseLeave = () => {
-    console.log("LEAVVE");
     setCurrentPost("");
   };
+
+  const tabletOrBigger = window.innerWidth > 768;
 
   return (
     <div className={styles.container}>
@@ -30,12 +28,18 @@ export const Posts = ({ posts }: PostsProps) => {
           <Link to={"/post/" + post._id}>
             <div
               className={cx(styles.flex, {
-                [styles.hideContent]: currentPost === post._id,
+                [styles.hideContent]:
+                  currentPost === post._id && tabletOrBigger,
               })}
               onMouseEnter={() => handleMouseEnter(post._id)}
             >
               <div className={styles.contentContainer}>
                 <h4 className={styles.title}>{post.title}</h4>
+                {!tabletOrBigger && (
+                  <p className={styles.dateOnMobile}>
+                    {post.creationDate.split("T")[0]}
+                  </p>
+                )}
                 <p className={styles.content}>{post.content}</p>
               </div>
             </div>
@@ -44,11 +48,13 @@ export const Posts = ({ posts }: PostsProps) => {
             className={styles.dateOnHover}
             onMouseLeave={() => handleMouseLeave()}
           >
-            <Link to={"/post/" + post._id}>
-              <p className={styles.dateParagraph}>
-                {post.creationDate.split("T")[0]}
-              </p>
-            </Link>
+            {tabletOrBigger && (
+              <Link to={"/post/" + post._id}>
+                <p className={styles.dateParagraph}>
+                  {post.creationDate.split("T")[0]}
+                </p>
+              </Link>
+            )}
           </div>
         </div>
       ))}

@@ -11,8 +11,8 @@ import { Input, TextArea } from "../../../components/Input";
 // import { Input } from "../../../components/Input";
 
 export const schema = yup.object().shape({
-  title: yup.string().required("Don't leave this field empty"),
-  content: yup.string().required("Don't leave this field empty"),
+  title: yup.string().min(3).max(30).required("Don't leave this field empty"),
+  content: yup.string().min(5).required("Don't leave this field empty"),
   creationDate: yup.string().required("You must choose a date"),
 });
 
@@ -22,6 +22,7 @@ export const PostForm = ({ onSubmit }: PostFormProps) => {
     control,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<IFormPostInputs>({
     resolver: yupResolver(schema),
   });
@@ -34,6 +35,7 @@ export const PostForm = ({ onSubmit }: PostFormProps) => {
 
   const handleData = (data: IFormPostInputs) => {
     onSubmit(data);
+    reset();
   };
 
   return (

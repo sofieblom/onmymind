@@ -1,5 +1,14 @@
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import Button from "@mui/material/Button";
+
+const styles = {
+  backgroundColor: "#c32c2c",
+  "&:hover": { backgroundColor: "#cc3636" },
+  minWidth: "120px",
+  // marginTop: "8px",
+  crusor: "pointer",
+};
 
 export const DeletePost = () => {
   const params = useParams();
@@ -18,5 +27,14 @@ export const DeletePost = () => {
       });
   };
 
-  return <button onClick={handleDelete}>Delete</button>;
+  return (
+    <Button
+      variant="contained"
+      type="submit"
+      sx={styles}
+      onClick={handleDelete}
+    >
+      Delete
+    </Button>
+  );
 };
