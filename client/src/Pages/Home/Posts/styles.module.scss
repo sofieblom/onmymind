@@ -7,25 +7,53 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
+  position: relative;
+  @media screen and (max-width: 768px) {
+    background: #ededed;
+    padding-top: 32px;
+    border-radius: 30px 30px 0px 0px;
+  }
 }
 
+.postContainer {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 .wrapper {
-  width: 300px;
-  background-color: rgb(237, 236, 235);
+  width: 400px;
+  background-color: rgb(33 33 33);
   height: 170px;
   position: relative;
+  @media screen and (max-width: 768px) {
+    width: 95%;
+    // background-color: #3d3d3d;
+    // border-bottom: 1px solid #484646;
+    background-color: #ededed;
+    border-bottom: 1px solid #d8d3d3;
+  }
 }
 
 .title {
   padding: 0px 16px;
   margin: 16px 0px 0px 0px;
   font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+  color: #ededed;
+  font-size: 1.1rem;
+  @media screen and (max-width: 768px) {
+    color: #333232;
+  }
 }
 
 .content {
   padding: 0px 16px;
-  font-size: 0.8rem;
-  color: rgb(106, 104, 104);
+  font-size: 0.9rem;
+  color: #ededed;
+  @media screen and (max-width: 768px) {
+    color: #333232;
+  }
 }
 
 .flex {
@@ -43,8 +71,8 @@ a:visited {
 
 .contentContainer {
   width: 100%;
-  height: 150px;
-  overflow: hidden;
+  height: 155px;
+  // overflow: hidden;
 }
 
 .dateOnHover {
@@ -59,7 +87,7 @@ a:visited {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.121);
+    background-color: rgb(33 33 33);
     // background-color: rgba(250, 222, 82, 0.891);
   }
 }
@@ -69,12 +97,18 @@ a:visited {
 }
 
 .dateParagraph {
-  font-size: 3rem;
-  font-family: "Inspiration", cursive;
-  font-weight: bold;
+  color: #ededed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: lighter;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .dateOnMobile {
   padding: 0px 16px;
+  margin-top: 8px;
   font-size: 0.7rem;
+  color: #333232;
 }

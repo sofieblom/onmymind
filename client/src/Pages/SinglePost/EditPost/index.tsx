@@ -10,9 +10,9 @@ import { SubmitButton } from "../../../components/Button";
 import { TextField } from "@mui/material";
 
 const schema = yup.object().shape({
-  title: yup.string().min(3).max(40).required("Don't leave this field empty"),
-  content: yup.string().min(5).required("Don't leave this field empty"),
-  creationDate: yup.string().required("You must choose a date"),
+  title: yup.string().min(3).max(40).required("don't leave this field empty"),
+  content: yup.string().min(5).required("don't leave this field empty"),
+  creationDate: yup.string().required("you must choose a date"),
   // title: yup.string().when("post", {
   //   is: true,
   //   then: yup.string().required("Do not leave empty"),
@@ -68,6 +68,7 @@ export const EditPost = () => {
             content: response.data.content,
             creationDate: response.data.creationDate.split("T")[0],
           });
+
           setPost(true);
         }
       })
@@ -77,12 +78,6 @@ export const EditPost = () => {
   }, [params]);
 
   const onSubmit: SubmitHandler<IFormPostInputs> = (data: IFormPostInputs) => {
-    // console.log("DATA", data);
-    // if (
-    //   currentPost.title.length > 0 &&
-    //   currentPost.content.length > 0 &&
-    //   currentPost.creationDate.length > 0
-    // ) {
     // const updatedPost: IFormPostInputs = {
     //   title: currentPost.title,
     //   content: currentPost.content,
@@ -93,6 +88,7 @@ export const EditPost = () => {
       content: data.content,
       creationDate: data.creationDate,
     };
+
     console.log("DATA I IF", data);
 
     axios
@@ -121,21 +117,6 @@ export const EditPost = () => {
           onSubmit={handleSubmit(onSubmit)}
           className={styles.formContainer}
         >
-          {/* <Controller
-            control={control}
-            name="title"
-            render={({ field }) => (
-              <TextField
-                {...field}
-                fullWidth
-                label="Title"
-                required
-                value={currentPost.title}
-                error={!!errors.title}
-                helperText={errors.title && `${errors.title.message}`}
-              />
-            )}
-          /> */}
           <input
             {...register("title")}
             placeholder="Title"
@@ -144,7 +125,9 @@ export const EditPost = () => {
             value={currentPost?.title}
             onChange={(e) => handleChange(e)}
           />
-          <p>{errors.title?.message}</p>
+          <div className={styles.errorWrapper}>
+            <p className={styles.errorMessage}>{errors.title?.message}</p>
+          </div>
           <input
             {...register("creationDate")}
             name="creationDate"
@@ -152,26 +135,11 @@ export const EditPost = () => {
             value={currentPost?.creationDate}
             onChange={(e) => handleChange(e)}
           />
-
-          {/* <Controller
-            control={control}
-            name="content"
-            render={({ field }) => (
-              <TextField
-                {...field}
-                fullWidth
-                multiline
-                rows={10}
-                label="What's on your mind?"
-                required
-                value={currentPost.content}
-                error={!!errors.content}
-                helperText={errors.content && `${errors.content.message}`}
-              />
-            )}
-          /> */}
-
-          {/* ////////////////////////////////////////////////// */}
+          <div className={styles.errorWrapper}>
+            <p className={styles.errorMessage}>
+              {errors.creationDate?.message}
+            </p>
+          </div>
           <textarea
             {...register("content")}
             placeholder="What's on your mind?"
@@ -179,9 +147,12 @@ export const EditPost = () => {
             value={currentPost?.content}
             onChange={(e) => handleChange(e)}
           />
-          <p>{errors.content?.message}</p>
-
-          <SubmitButton>Save</SubmitButton>
+          <div className={styles.errorWrapper}>
+            <p className={styles.errorMessage}>{errors.content?.message}</p>
+          </div>
+          <div className={styles.btnWrapper}>
+            <SubmitButton>Save</SubmitButton>
+          </div>
         </form>
       </div>
     </div>

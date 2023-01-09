@@ -13,9 +13,9 @@ import { useNavigate } from "react-router-dom";
 // import { Input } from "../../../components/Input";
 
 export const schema = yup.object().shape({
-  title: yup.string().min(3).max(40).required("Don't leave this field empty"),
-  content: yup.string().min(5).required("Don't leave this field empty"),
-  creationDate: yup.string().required("You must choose a date"),
+  title: yup.string().min(3).max(40).required("don't leave this field empty"),
+  content: yup.string().min(5).required("don't leave this field empty"),
+  creationDate: yup.string().required("you must choose a date"),
 });
 
 export const PostForm = ({ onSubmit }: PostFormProps) => {
@@ -78,7 +78,9 @@ export const PostForm = ({ onSubmit }: PostFormProps) => {
           <div className={styles.errorWrapper}>
             <p className={styles.errorMessage}>{errors.content?.message}</p>
           </div>
-          <SubmitButton>Save</SubmitButton>
+          <div className={styles.btnWrapper}>
+            <SubmitButton>Save</SubmitButton>
+          </div>
         </form>
       </div>
     </div>

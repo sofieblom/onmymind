@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { HamburgerMeny } from "../HamburgerMenu";
 import styles from "./styles.module.scss";
+import image from "../../assets/meditation.png";
 
 export const Layout = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const breakPoint = window.innerWidth > 768;
 
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth > 768) {
+      if (breakPoint) {
         setIsOpen(false);
       }
     }
@@ -23,6 +25,7 @@ export const Layout = () => {
   return (
     <>
       <div className={styles.header}>
+        <h1 className={styles.heading}>Journal of today</h1>
         <nav className={styles.nav}>
           <ul>
             <li>
@@ -53,7 +56,10 @@ export const Layout = () => {
           <Outlet />
         </div>
       ) : (
-        <Outlet />
+        <div className={styles.container}>
+          <Outlet />
+          <img src={image} width={350} className={styles.image} />
+        </div>
       )}
     </>
   );

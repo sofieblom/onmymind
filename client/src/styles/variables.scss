@@ -9,6 +9,15 @@ $dark-bg-color: #242424;
 $white-bg-color: #f8f8f8;
 $input-bg-color: #f1f1f1;
 $green-button: #8caa91;
+$NEW-DARK-BG: #282b28;
+$text-color: #333232;
+// background:
+$gradient-bg: linear-gradient(
+  90deg,
+  rgba(24, 24, 24, 1) 0%,
+  rgba(78, 85, 88, 1) 75%,
+  rgb(97 104 107) 100%
+);
 
 // max-width media-query
 $mobile: 480px;

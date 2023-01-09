@@ -5,14 +5,10 @@ import styles from "./styles.module.scss";
 import cx from "classnames";
 
 export const Posts = ({ posts }: PostsProps) => {
-  const [isHovered, setIsHovered] = useState(false);
   const [currentPost, setCurrentPost] = useState("");
-
-  // const postRef = useRef(null);
 
   const handleMouseEnter = (id: string) => {
     setCurrentPost(id);
-    // setIsHovered(true);
   };
 
   const handleMouseLeave = () => {
@@ -23,6 +19,7 @@ export const Posts = ({ posts }: PostsProps) => {
 
   return (
     <div className={styles.container}>
+      {/* <div className={styles.postContainer}> */}
       {posts.map((post) => (
         <div className={styles.wrapper} key={post._id}>
           <Link to={"/post/" + post._id}>
@@ -34,31 +31,38 @@ export const Posts = ({ posts }: PostsProps) => {
               onMouseEnter={() => handleMouseEnter(post._id)}
             >
               <div className={styles.contentContainer}>
-                <h4 className={styles.title}>{post.title}</h4>
-                {!tabletOrBigger && (
-                  <p className={styles.dateOnMobile}>
-                    {/* {post.creationDate.split("T")[0]} */}
-                    {post.creationDate}
-                  </p>
+                {!tabletOrBigger ? (
+                  <div>
+                    <h4 className={styles.title}>{post.title}</h4>
+                    <p className={styles.content}>{post.content}</p>
+                    <p className={styles.dateOnMobile}>
+                      {post.creationDate.split("T")[0]}
+                    </p>
+                  </div>
+                ) : (
+                  <div>
+                    <h4 className={styles.title}>{post.title}</h4>
+                    <p className={styles.dateParagraph}>
+                      {post.creationDate.split("T")[0]}
+                    </p>
+                  </div>
                 )}
-                <p className={styles.content}>{post.content}</p>
               </div>
             </div>
           </Link>
-          <div
-            className={styles.dateOnHover}
-            onMouseLeave={() => handleMouseLeave()}
-          >
-            {tabletOrBigger && (
-              <Link to={"/post/" + post._id}>
-                <p className={styles.dateParagraph}>
-                  {post.creationDate.split("T")[0]}
-                </p>
-              </Link>
-            )}
-          </div>
+          {tabletOrBigger && (
+            <Link to={"/post/" + post._id}>
+              <div
+                className={styles.dateOnHover}
+                onMouseLeave={() => handleMouseLeave()}
+              >
+                <p className={styles.content}>{post.content}</p>
+              </div>
+            </Link>
+          )}
         </div>
       ))}
+      {/* </div> */}
     </div>
   );
 };

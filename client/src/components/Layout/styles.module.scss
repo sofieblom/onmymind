@@ -1,6 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Inspiration&display=swap");
+
 .header {
   width: 100%;
   height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+  @media screen and (max-width: 768px) {
+    // flex-direction: column-reverse;
+  }
 }
 
 nav {
@@ -46,4 +55,21 @@ ul {
 
 .open {
   display: none;
+}
+
+.image {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  opacity: 20%;
+  pointer-events: none;
+}
+
+.heading {
+  color: #f8f8f8;
+  font-size: 3rem;
+  font-family: "Inspiration", cursive;
+  font-weight: lighter;
+  font-size: 5rem;
+  margin: 8px;
 }
