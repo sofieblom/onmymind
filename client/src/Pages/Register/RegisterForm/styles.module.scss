@@ -12,12 +12,6 @@
   cursor: pointer;
 }
 
-.wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-
 .formContainer {
   display: flex;
   flex-direction: column;
@@ -30,8 +24,11 @@ input {
   height: 35px;
   background-color: #f1f1f1;
   border: none;
-  // font-style: italic;
   padding: 0px 8px;
+}
+
+input:first-child {
+  margin-top: 16px;
 }
 
 .errorWrapper {

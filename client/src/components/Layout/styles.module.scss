@@ -7,9 +7,6 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 32px;
-  @media screen and (max-width: 768px) {
-    // flex-direction: column-reverse;
-  }
 }
 
 nav {
@@ -25,9 +22,7 @@ li {
   cursor: pointer;
   text-decoration: none;
   font-size: 12px;
-  color: #f8f8f8;
-
-  // color: rgb(237, 236, 235);
+  color: #ededed;
 }
 
 a {
@@ -35,6 +30,28 @@ a {
 }
 a:visited {
   color: inherit;
+}
+
+.underline {
+  display: block;
+  position: relative;
+  color: #ededed;
+}
+.underline::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #ededed;
+  transform-origin: bottom right;
+  transition: transform 0.5s ease-out;
+}
+.underline:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 ul {

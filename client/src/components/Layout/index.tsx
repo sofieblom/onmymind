@@ -22,6 +22,7 @@ export const Layout = () => {
     localStorage.removeItem("token");
     navigate("/");
   };
+
   return (
     <>
       <div className={styles.header}>
@@ -30,16 +31,16 @@ export const Layout = () => {
           <ul>
             <li>
               <Link to="/home">
-                <h3>MY POSTS</h3>
+                <h3 className={styles.underline}>MY POSTS</h3>
               </Link>
             </li>
             <li>
               <Link to="/posts/create-new">
-                <h3>NEW POST</h3>
+                <h3 className={styles.underline}>NEW POST</h3>
               </Link>
             </li>
             <li onClick={handleLogOut}>
-              <h3>LOG OUT</h3>
+              <h3 className={styles.underline}>LOG OUT</h3>
             </li>
           </ul>
         </nav>

@@ -3,7 +3,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./styles.module.scss";
 import { SubmitButton } from "../../../components/Button";
-import xmark from "../../../assets/xmark.svg";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 
@@ -41,20 +40,8 @@ export const RegisterForm = ({ onSubmit, emailError }: FormProps) => {
     }
   };
 
-  const handleOnClick = () => {
-    navigate("/");
-  };
-
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
-        <img
-          src={xmark}
-          width={20}
-          className={styles.img}
-          onClick={handleOnClick}
-        />
-      </div>
       <form
         onSubmit={handleSubmit(handleData)}
         className={styles.formContainer}

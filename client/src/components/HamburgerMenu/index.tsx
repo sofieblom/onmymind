@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
-import xmark from "../../assets/xmark.svg";
-import bars from "../../assets/bars.svg";
+import xmark from "../../assets/xmark.png";
+import bars from "../../assets/bars.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
