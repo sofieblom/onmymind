@@ -11,7 +11,7 @@ const btnStyles = {
   backgroundColor: "#8caa91",
   "&:hover": { backgroundColor: "#9ebda3" },
   minWidth: "120px",
-  marginRight: "8px",
+  marginTop: "8px",
   crusor: "pointer",
 };
 
@@ -44,18 +44,22 @@ export const SinglePost = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <h1>{post?.title}</h1>
-        <p>{post?.content}</p>
-        <p>{post?.creationDate.split("T")[0]}</p>
-        <Button
-          variant="contained"
-          type="submit"
-          sx={btnStyles}
-          onClick={handleEdit}
-        >
-          Edit
-        </Button>
-        <DeletePost />
+        <h1 className={styles.heading}>{post?.title}</h1>
+        <p className={styles.content}>{post?.content}</p>
+        <div className={styles.btnWrapper}>
+          <p className={styles.date}>{post?.creationDate.split("T")[0]}</p>
+          <div className={styles.gap}>
+            <Button
+              variant="contained"
+              type="submit"
+              sx={btnStyles}
+              onClick={handleEdit}
+            >
+              Edit
+            </Button>
+            <DeletePost />
+          </div>
+        </div>
       </div>
     </div>
   );

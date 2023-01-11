@@ -6,7 +6,7 @@ export const NotFound = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.heading}>OOOPS, PAGE NOT FOUND</h1>
+      <h1 className={styles.heading}>OOOPS, SOMETHING WENT WRONG</h1>
 
       {token ? <Link to="/home">Go home</Link> : <Link to="/">Go home</Link>}
     </div>

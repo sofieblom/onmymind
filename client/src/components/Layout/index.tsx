@@ -3,6 +3,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import { HamburgerMeny } from "../HamburgerMenu";
 import styles from "./styles.module.scss";
 import image from "../../assets/meditation.png";
+import cx from "classnames";
 
 export const Layout = () => {
   const navigate = useNavigate();
@@ -26,7 +27,20 @@ export const Layout = () => {
   return (
     <>
       <div className={styles.header}>
-        <h1 className={styles.heading}>Journal of today</h1>
+        <div className={styles.hamburgerMenu}>
+          <HamburgerMeny
+            handleLogOut={handleLogOut}
+            setIsOpen={setIsOpen}
+            isOpen={isOpen}
+          />
+        </div>
+        <h1
+          className={cx(styles.heading, {
+            [styles.hideHeading]: isOpen && !breakPoint,
+          })}
+        >
+          Journal of today
+        </h1>
         <nav className={styles.nav}>
           <ul>
             <li>
@@ -44,13 +58,6 @@ export const Layout = () => {
             </li>
           </ul>
         </nav>
-        <div className={styles.hamburgerMenu}>
-          <HamburgerMeny
-            handleLogOut={handleLogOut}
-            setIsOpen={setIsOpen}
-            isOpen={isOpen}
-          />
-        </div>
       </div>
       {isOpen ? (
         <div className={styles.open}>
