@@ -1,16 +1,9 @@
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./styles.module.scss";
-import { useState } from "react";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
-import calendar from "../../../assets/calendar.svg";
-import { TextField } from "@mui/material";
-import { Input, TextArea } from "../../../components/Input";
 import { SubmitButton } from "../../../components/Button";
 import { useNavigate } from "react-router-dom";
-// import { Input } from "../../../components/Input";
 
 export const schema = yup.object().shape({
   title: yup.string().min(3).max(40).required("don't leave this field empty"),

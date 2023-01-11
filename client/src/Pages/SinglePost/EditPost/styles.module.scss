@@ -5,7 +5,8 @@
 }
 
 .wrapper {
-  background-color: #f8f8f8;
+  // background-color: #f8f8f8;
+  background-color: #4c4c4c9e;
   padding: 16px;
   border-radius: 10px;
   width: 100%;
@@ -37,4 +38,9 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  gap: 8px;
+}
+
+textarea {
+  padding: 0px 8px;
 }
