@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./styles.module.scss";
-import { SubmitButton } from "../../../components/Button";
+import { FormButton } from "../../../components/Button";
 import { useNavigate } from "react-router-dom";
 
 export const schema = yup.object().shape({
@@ -23,11 +23,6 @@ export const PostForm = ({ onSubmit }: PostFormProps) => {
   });
 
   const navigate = useNavigate();
-
-  // RENDER COUNT
-  let renderCount = 0;
-  renderCount++;
-  console.log("RENDERCOUNT CREATE POST", renderCount);
 
   const handleData = (data: IFormPostInputs) => {
     onSubmit(data);
@@ -72,7 +67,7 @@ export const PostForm = ({ onSubmit }: PostFormProps) => {
             <p className={styles.errorMessage}>{errors.content?.message}</p>
           </div>
           <div className={styles.btnWrapper}>
-            <SubmitButton>Save</SubmitButton>
+            <FormButton btnStyle="submit">Save</FormButton>
           </div>
         </form>
       </div>

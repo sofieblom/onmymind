@@ -4,9 +4,11 @@ import { RegisterForm } from "./RegisterForm";
 import styles from "./styles.module.scss";
 import { IFormInputs } from "./RegisterForm";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
   const [emailError, setEmailError] = useState();
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
     if (data) {
@@ -25,6 +27,7 @@ export const Register = () => {
           setEmailError(error.response.data.email);
           console.log(error);
         });
+      navigate("/");
     }
   };
 

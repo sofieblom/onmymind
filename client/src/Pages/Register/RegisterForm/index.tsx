@@ -2,7 +2,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import styles from "./styles.module.scss";
-import { SubmitButton } from "../../../components/Button";
+import { FormButton } from "../../../components/Button";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 
@@ -111,7 +111,7 @@ export const RegisterForm = ({ onSubmit, emailError }: FormProps) => {
           >
             Cancel
           </Button>
-          <SubmitButton>Create account</SubmitButton>
+          <FormButton btnStyle="submit">Create account</FormButton>
         </div>
       </form>
     </div>

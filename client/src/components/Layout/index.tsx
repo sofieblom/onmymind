@@ -41,7 +41,7 @@ export const Layout = () => {
         >
           Journal of today
         </h1>
-        <nav className={styles.nav}>
+        <nav className={styles.navigation}>
           <ul>
             <li>
               <Link to="/home">

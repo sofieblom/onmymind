@@ -1,30 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Inspiration&display=swap");
 
-// fonts
-$heading-font: "Inspiration", cursive;
+:root {
+  $heading-font: "Inspiration", cursive;
 
-// colors
-$background-color: #3d3d3d;
-$dark-bg-color: #242424;
-$white-bg-color: #f8f8f8;
-$input-bg-color: #f1f1f1;
-$green-button: #8caa91;
-$NEW-DARK-BG: #282b28;
-$text-color: #333232;
-$white-text-color: #ededed;
+  --color-inputBg: #f1f1f1;
+  --coolor-submitBtn: #8caa91;
+  --color-darkbg: #171717;
+  --color-textDark: #333232;
+  --color-textWhite: #ededed;
 
-// background:
-$gradient-bg: linear-gradient(
-  90deg,
-  rgba(24, 24, 24, 1) 0%,
-  rgba(78, 85, 88, 1) 75%,
-  rgb(97 104 107) 100%
-);
+  --color-gradientbg: linear-gradient(
+    90deg,
+    rgba(24, 24, 24, 1) 0%,
+    rgba(78, 85, 88, 1) 75%,
+    rgb(97 104 107) 100%
+  );
 
-// max-width media-query
-$mobile: 480px;
-$tablet: 768px;
-$small-screen: 1024px;
-$medium-screen: 1200px;
+  $mobile: 480px;
+  $tablet: 768px;
+  $small-screen: 1024px;
+  $medium-screen: 1200px;
 
-$spacing: 16px;
+  $spacing: 16px;
+}

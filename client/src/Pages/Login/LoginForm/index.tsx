@@ -3,7 +3,7 @@ import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Link } from "react-router-dom";
-import { SubmitButton } from "../../../components/Button";
+import { FormButton } from "../../../components/Button";
 import user from "./user.svg";
 import key from "./key.svg";
 
@@ -30,7 +30,6 @@ export const LoginForm = ({
   const handleData = (data: InputsType) => {
     if (data) {
       onSubmit(data);
-      reset();
     }
   };
 
@@ -74,7 +73,7 @@ export const LoginForm = ({
             <p className={styles.error}>{authPasswordError}</p>
           )}
         </div>
-        <SubmitButton>Log in</SubmitButton>
+        <FormButton btnStyle="submit">Log in</FormButton>
       </form>
 
       <p className={styles.createAccount}>

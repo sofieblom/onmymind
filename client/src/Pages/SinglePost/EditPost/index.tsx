@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
 import styles from "./styles.module.scss";
 import { IFormPostInputs } from "../../CreatePost/PostForm";
-import { SubmitButton } from "../../../components/Button";
+import { FormButton } from "../../../components/Button";
 import { DeletePost } from "../DeletePost";
 import { schema } from "../../CreatePost/PostForm";
 
@@ -112,7 +112,7 @@ export const EditPost = () => {
 
           <div className={styles.btnWrapper}>
             <DeletePost />
-            <SubmitButton>Save</SubmitButton>
+            <FormButton btnStyle="submit">Save</FormButton>
           </div>
         </form>
       </div>

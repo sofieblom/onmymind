@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Login } from "./Pages/Login";
@@ -13,20 +12,12 @@ import { EditPost } from "./Pages/SinglePost/EditPost";
 import "./styles/variables.scss";
 
 function App() {
-  const [id, setId] = useState("");
-  const [email, setEmail] = useState("");
-
-  const getUser = (id: string, email: string) => {
-    setId(id);
-    setEmail(email);
-  };
-
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/register" element={<Register />} />
-          <Route path="/" element={<Login getUser={getUser} />} />
+          <Route path="/" element={<Login />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Layout />}>
             <Route element={<ProtectedRoute />}>
@@ -40,12 +31,6 @@ function App() {
       </BrowserRouter>
     </>
   );
-}
-
-interface UserType {
-  email: string;
-  _id: string;
-  token: string;
 }
 
 export default App;
