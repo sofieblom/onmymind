@@ -6,14 +6,7 @@ import { DeletePost } from "./DeletePost";
 import { EditPost } from "./EditPost";
 import styles from "./styles.module.scss";
 import Button from "@mui/material/Button";
-
-const btnStyles = {
-  backgroundColor: "#8caa91",
-  "&:hover": { backgroundColor: "#9ebda3" },
-  minWidth: "120px",
-  marginTop: "8px",
-  crusor: "pointer",
-};
+import { FormButton } from "../../components/Button";
 
 export const SinglePost = () => {
   let params = useParams();
@@ -49,14 +42,9 @@ export const SinglePost = () => {
         <div className={styles.btnWrapper}>
           <p className={styles.date}>{post?.creationDate.split("T")[0]}</p>
           <div className={styles.gap}>
-            <Button
-              variant="contained"
-              type="submit"
-              sx={btnStyles}
-              onClick={handleEdit}
-            >
+            <FormButton btnStyle="submit" onClick={handleEdit}>
               Edit
-            </Button>
+            </FormButton>
             <DeletePost />
           </div>
         </div>

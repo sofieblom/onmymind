@@ -24,7 +24,7 @@ export const Posts = ({ posts }: PostsProps) => {
           <div key={post._id} className={styles.wrapper}>
             <div className={styles.desktopItem}>
               <div
-                className={styles.desktopWrapper}
+                className={styles.toggleWrapper}
                 onClick={() => togglePost(post._id)}
               >
                 <div className={styles.infoWrapper}>

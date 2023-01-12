@@ -14,14 +14,6 @@ const schema = yup.object().shape({
   repeatPassword: yup.string().oneOf([yup.ref("password"), null]),
 });
 
-const btnStyles = {
-  backgroundColor: "#c32c2c",
-  "&:hover": { backgroundColor: "#cc3636" },
-  minWidth: "120px",
-  marginRight: "8px",
-  crusor: "pointer",
-};
-
 export const RegisterForm = ({ onSubmit, emailError }: FormProps) => {
   const {
     register,
@@ -103,14 +95,9 @@ export const RegisterForm = ({ onSubmit, emailError }: FormProps) => {
           </p>
         </div>
         <div className={styles.btnWrapper}>
-          <Button
-            variant="contained"
-            type="submit"
-            sx={btnStyles}
-            onClick={() => navigate("/")}
-          >
+          <FormButton btnStyle="cancel" onClick={() => navigate("/")}>
             Cancel
-          </Button>
+          </FormButton>
           <FormButton btnStyle="submit">Create account</FormButton>
         </div>
       </form>
