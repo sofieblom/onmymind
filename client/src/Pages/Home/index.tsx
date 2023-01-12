@@ -39,11 +39,13 @@ export const Home = () => {
   return (
     <div className={styles.container}>
       <Posts posts={currentPosts} />
-      <Paginate
-        nPages={nPages}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
+      {posts.length > 10 && (
+        <Paginate
+          nPages={nPages}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+      )}
     </div>
   );
 };

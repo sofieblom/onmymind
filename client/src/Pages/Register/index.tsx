@@ -10,24 +10,34 @@ export const Register = () => {
   const [emailError, setEmailError] = useState();
   const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
-    if (data) {
+  const onSubmit: SubmitHandler<IFormInputs> = async (data: IFormInputs) => {
+    if (
+      data.firstname &&
+      data.lastname &&
+      data.email &&
+      data.password &&
+      data.repeatPassword
+    ) {
       const registerUser: IFormInputs = {
         firstname: data.firstname,
         lastname: data.lastname,
         email: data.email,
         password: data.password,
       };
-      axios
+      await axios
         .post("http://localhost:5000/user/register", registerUser)
         .then((response) => {
-          console.log(response.data);
+          if (response.status === 200) {
+            navigate("/");
+            console.log(response.data);
+          }
         })
         .catch((error) => {
           setEmailError(error.response.data.email);
           console.log(error);
         });
-      navigate("/");
+    } else {
+      console.log("bajs");
     }
   };
 

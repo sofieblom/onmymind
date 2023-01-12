@@ -28,7 +28,6 @@ export const RegisterForm = ({ onSubmit, emailError }: FormProps) => {
   const handleData = (data: IFormInputs) => {
     if (data) {
       onSubmit(data);
-      reset();
     }
   };
 

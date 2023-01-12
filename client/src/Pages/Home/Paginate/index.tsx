@@ -10,8 +10,6 @@ export const Paginate = ({
 }: PaginateProps) => {
   const pageNumbers = Array.from(Array(nPages), (_, index) => index + 1);
 
-  console.log(pageNumbers);
-
   const prevPage = () => {
     if (currentPage !== 1) setCurrentPage(currentPage - 1);
   };
