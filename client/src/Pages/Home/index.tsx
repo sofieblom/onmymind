@@ -59,14 +59,16 @@ export const Home = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.sortContainer}>
-        <p className={styles.sort} onClick={() => setSortByNewest(true)}>
-          SORT BY NEWEST
-        </p>
-        <p className={styles.sort} onClick={() => setSortByNewest(false)}>
-          SORT BY OLDEST
-        </p>
+      <div className={styles.filterContainer}>
         <SearchInput posts={posts} setInputText={setInputText} />
+        <div className={styles.sortContainer}>
+          <p className={styles.sort} onClick={() => setSortByNewest(true)}>
+            SORT BY NEWEST
+          </p>
+          <p className={styles.sort} onClick={() => setSortByNewest(false)}>
+            SORT BY OLDEST
+          </p>
+        </div>
       </div>
       <Posts
         // posts={currentPosts}

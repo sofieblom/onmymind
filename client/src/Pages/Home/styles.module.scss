@@ -5,6 +5,15 @@
   margin: auto;
 }
 
+.filterContainer {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .sortContainer {
   width: 100%;
   display: flex;
@@ -12,7 +21,6 @@
   margin: auto;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .sort {
