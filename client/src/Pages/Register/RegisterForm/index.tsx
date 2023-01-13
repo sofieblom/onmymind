@@ -23,6 +23,7 @@ export const RegisterForm = ({ onSubmit, emailError }: FormProps) => {
   } = useForm<IFormInputs>({
     resolver: yupResolver(schema),
   });
+
   const navigate = useNavigate();
 
   const handleData = (data: IFormInputs) => {

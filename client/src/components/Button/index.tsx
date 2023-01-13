@@ -11,6 +11,7 @@ const styles: Record<string, any> = {
   submit: {
     backgroundColor: "#8caa91",
     "&:hover": { backgroundColor: "#9ebda3" },
+    marginTop: "8px",
     minWidth: "120px",
     crusor: "pointer",
   },

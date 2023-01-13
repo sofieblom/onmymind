@@ -6,8 +6,8 @@ import { FormButton } from "../../../components/Button";
 import { useNavigate } from "react-router-dom";
 
 export const schema = yup.object().shape({
-  title: yup.string().min(3).max(40).required("don't leave this field empty"),
-  content: yup.string().min(5).required("don't leave this field empty"),
+  title: yup.string().min(2).max(50).required("don't leave this field empty"),
+  content: yup.string().min(2).required("don't leave this field empty"),
   creationDate: yup.string().required("you must choose a date"),
 });
 
@@ -50,7 +50,7 @@ export const PostForm = ({ onSubmit }: PostFormProps) => {
           <input
             {...register("creationDate")}
             name="creationDate"
-            type="date"
+            type="datetime-local"
           />
           <div className={styles.errorWrapper}>
             <p className={styles.errorMessage}>

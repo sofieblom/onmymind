@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 import cx from "classnames";
 import edit from "../Posts/edit.png";
 
-export const Posts = ({ posts }: PostsProps) => {
+export const Posts = ({ posts, setSortByNewest }: PostsProps) => {
   const [selected, setSelected] = useState("");
 
   const togglePost = (id: string) => {
@@ -18,8 +18,15 @@ export const Posts = ({ posts }: PostsProps) => {
 
   return (
     <>
-      <div>{/* <p className={styles.sort}>SORT</p> */}</div>
       <div className={styles.container}>
+        <div className={styles.sortContainer}>
+          <p className={styles.sort} onClick={() => setSortByNewest(true)}>
+            SORT BY NEWEST
+          </p>
+          <p className={styles.sort} onClick={() => setSortByNewest(false)}>
+            SORT BY OLDEST
+          </p>
+        </div>
         {posts.map((post) => (
           <div key={post._id} className={styles.wrapper}>
             <div className={styles.desktopItem}>
@@ -61,4 +68,5 @@ export const Posts = ({ posts }: PostsProps) => {
 
 interface PostsProps {
   posts: PostType[];
+  setSortByNewest: (x: boolean) => void;
 }

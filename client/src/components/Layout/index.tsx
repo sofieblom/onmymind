@@ -66,7 +66,7 @@ export const Layout = () => {
       ) : (
         <div className={styles.container}>
           <Outlet />
-          <img src={image} width={350} className={styles.image} />
+          <img src={image} className={styles.image} />
         </div>
       )}
     </>

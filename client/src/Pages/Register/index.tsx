@@ -18,6 +18,7 @@ export const Register = () => {
       data.password &&
       data.repeatPassword
     ) {
+      console.log("IIIIIF");
       const registerUser: IFormInputs = {
         firstname: data.firstname,
         lastname: data.lastname,

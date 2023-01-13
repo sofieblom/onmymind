@@ -19,10 +19,8 @@ export const LoginForm = ({
 }: LoginFormProps) => {
   const {
     register,
-    control,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm<InputsType>({
     resolver: yupResolver(schema),
   });
