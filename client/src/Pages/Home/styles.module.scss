@@ -4,3 +4,23 @@
   width: 100%;
   margin: auto;
 }
+
+.sortContainer {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sort {
+  font-size: 0.7rem;
+  color: #ededed;
+  padding: 8px;
+  cursor: pointer;
+  &:hover {
+    font-weight: bold;
+  }
+}

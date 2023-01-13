@@ -19,22 +19,6 @@
   }
 }
 
-.sortContainer {
-  width: 80%;
-  display: flex;
-  gap: 16px;
-}
-
-.sort {
-  font-size: 0.7rem;
-  color: #ededed;
-  padding: 8px;
-  cursor: pointer;
-  &:hover {
-    font-weight: bold;
-  }
-}
-
 .wrapper {
   width: 80%;
   background-color: rgb(33 33 33);

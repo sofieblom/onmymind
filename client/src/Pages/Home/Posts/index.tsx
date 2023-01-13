@@ -1,33 +1,45 @@
-import { useEffect, useRef, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { PostType } from "..";
-import styles from "./styles.module.scss";
 import cx from "classnames";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { PostType } from "..";
 import edit from "../Posts/edit.png";
+import { SearchInput } from "../SearchInput";
+import styles from "./styles.module.scss";
 
-export const Posts = ({ posts, setSortByNewest }: PostsProps) => {
+export const Posts = ({ filteredPosts }: PostsProps) => {
   const [selected, setSelected] = useState("");
+  // const [inputText, setInputText] = useState("");
 
   const togglePost = (id: string) => {
     if (selected === id) {
       return setSelected("");
     }
-
     setSelected(id);
   };
 
+  // const filteredPost = posts.filter((post) => {
+  //   if (inputText === "") {
+  //     return post;
+  //   } else {
+  //     return post.title.match(inputText);
+  //   }
+  // });
+
+  // console.log("FILTERED POST", filteredPost);
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.sortContainer}>
+        {/* <div className={styles.sortContainer}>
           <p className={styles.sort} onClick={() => setSortByNewest(true)}>
             SORT BY NEWEST
           </p>
           <p className={styles.sort} onClick={() => setSortByNewest(false)}>
             SORT BY OLDEST
           </p>
-        </div>
-        {posts.map((post) => (
+          <SearchInput posts={posts} setInputText={setInputText} />
+        </div> */}
+
+        {filteredPosts.map((post) => (
           <div key={post._id} className={styles.wrapper}>
             <div className={styles.desktopItem}>
               <div
@@ -67,6 +79,8 @@ export const Posts = ({ posts, setSortByNewest }: PostsProps) => {
 };
 
 interface PostsProps {
-  posts: PostType[];
-  setSortByNewest: (x: boolean) => void;
+  // allPosts: PostType[];
+
+  // setSortByNewest: (x: boolean) => void;
+  filteredPosts: PostType[];
 }
