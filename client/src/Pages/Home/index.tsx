@@ -42,7 +42,7 @@ export const Home = () => {
     : sortedPostsByOldest.slice(indexOfFirstPost, indexOfLastPost);
 
   const nPages = Math.ceil(posts.length / postsPerPage);
-
+  const paginate = currentPosts.length >= 10 || currentPage >= 1;
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
@@ -77,7 +77,7 @@ export const Home = () => {
         filteredPosts={currentPosts}
       />
 
-      {currentPosts.length >= 10 && (
+      {paginate && (
         <Paginate
           nPages={nPages}
           currentPage={currentPage}

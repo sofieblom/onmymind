@@ -23,7 +23,7 @@ export const Paginate = ({
       <nav>
         <ul className={styles.list}>
           <li className={styles.pageItem}>
-            <a className={styles.link} onClick={prevPage} href="#">
+            <a className={styles.link} onClick={prevPage}>
               Previous
             </a>
           </li>
@@ -37,14 +37,13 @@ export const Paginate = ({
               <a
                 onClick={() => setCurrentPage(pgNumber)}
                 className={styles.link}
-                href="#"
               >
                 {pgNumber}
               </a>
             </li>
           ))}
           <li className={styles.pageItem}>
-            <a className={styles.link} onClick={nextPage} href="#">
+            <a className={styles.link} onClick={nextPage}>
               Next
             </a>
           </li>

@@ -30,7 +30,7 @@ export const SearchInput = ({ posts, setInputText }: SearchInputProps) => {
         className={styles.searchInput}
         type="search"
         placeholder="Search for title"
-        style={{ width: "300px" }}
+        // style={{ width: "300px" }}
         onChange={(e) => handleChange(e)}
         value={searchInput}
       />

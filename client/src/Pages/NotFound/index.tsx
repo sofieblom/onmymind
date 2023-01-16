@@ -8,7 +8,15 @@ export const NotFound = () => {
     <div className={styles.container}>
       <h1 className={styles.heading}>OOOPS, SOMETHING WENT WRONG</h1>
 
-      {token ? <Link to="/home">Go home</Link> : <Link to="/">Go home</Link>}
+      {token ? (
+        <Link className={styles.home} to="/home">
+          Go home
+        </Link>
+      ) : (
+        <Link className={styles.home} to="/">
+          Go home
+        </Link>
+      )}
     </div>
   );
 };

@@ -3,6 +3,7 @@
   height: 100%;
   width: 100%;
   margin: auto;
+  margin-top: 28px;
 }
 
 .filterContainer {
@@ -28,7 +29,4 @@
   color: #ededed;
   padding: 8px;
   cursor: pointer;
-  &:hover {
-    font-weight: bold;
-  }
 }
