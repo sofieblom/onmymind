@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { PostType } from "..";
 import edit from "../Posts/edit.png";
-import { SearchInput } from "../SearchInput";
+// import { SearchInput } from "../SearchInput";
 import styles from "./styles.module.scss";
 
 export const Posts = ({ filteredPosts }: PostsProps) => {

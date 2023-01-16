@@ -43,6 +43,7 @@ export const Home = () => {
 
   const nPages = Math.ceil(posts.length / postsPerPage);
   const paginate = currentPosts.length >= 10 || currentPage >= 1;
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
