@@ -3,6 +3,11 @@ const mongoose = require("mongoose")
 
 dotenv.config();
 let db = process.env.CONNECTION_STRING
+if (process.env.NODE_ENV === "test") {
+  db = process.env.TEST_CONNECTION_STRING
+}
+
+console.log("NODEENV", process.env.NODE_ENV)
 
 mongoose.set('strictQuery', true);
 
