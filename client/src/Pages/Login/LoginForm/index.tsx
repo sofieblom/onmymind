@@ -45,10 +45,14 @@ export const LoginForm = ({
             name="email"
             type="text"
             className={styles.input}
+            data-test="login-email"
           />
         </div>
         <div className={styles.errorWrapper}>
-          <p className={styles.error}> {errors.email?.message}</p>
+          <p className={styles.error} data-test="login-email-error">
+            {" "}
+            {errors.email?.message}
+          </p>
           {authEmailError && !errors.email?.message && (
             <p className={styles.error}>{authEmailError}</p>
           )}
@@ -63,12 +67,15 @@ export const LoginForm = ({
             name="password"
             type="password"
             className={styles.input}
+            data-test="login-password"
           />
         </div>
         <div className={styles.errorWrapper}>
           <p className={styles.error}>{errors.password?.message}</p>
           {authPasswordError && !errors.password?.message && (
-            <p className={styles.error}>{authPasswordError}</p>
+            <p className={styles.error} data-test="login-password-error">
+              {authPasswordError}
+            </p>
           )}
         </div>
         <FormButton btnStyle="submit">Log in</FormButton>

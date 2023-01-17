@@ -36,24 +36,35 @@ export const PostForm = ({ onSubmit }: PostFormProps) => {
         <form
           onSubmit={handleSubmit(handleData)}
           className={styles.formContainer}
+          data-test="create-post-form"
         >
           <input
             {...register("title")}
             placeholder="Title"
             name="title"
             type="text"
+            data-test="create-post-title"
             className={styles.inputField}
           />
           <div className={styles.errorWrapper}>
-            <p className={styles.errorMessage}>{errors.title?.message}</p>
+            <p
+              className={styles.errorMessage}
+              data-test="create-post-error-title"
+            >
+              {errors.title?.message}
+            </p>
           </div>
           <input
             {...register("creationDate")}
             name="creationDate"
             type="datetime-local"
+            data-test="create-post-date"
           />
           <div className={styles.errorWrapper}>
-            <p className={styles.errorMessage}>
+            <p
+              className={styles.errorMessage}
+              data-test="create-post-error-date"
+            >
               {errors.creationDate?.message}
             </p>
           </div>
@@ -61,10 +72,16 @@ export const PostForm = ({ onSubmit }: PostFormProps) => {
             {...register("content")}
             placeholder="What's on your mind?"
             name="content"
+            data-test="create-post-content"
             className={styles.textareaField}
           />
           <div className={styles.errorWrapper}>
-            <p className={styles.errorMessage}>{errors.content?.message}</p>
+            <p
+              className={styles.errorMessage}
+              data-test="create-post-error-content"
+            >
+              {errors.content?.message}
+            </p>
           </div>
           <div className={styles.btnWrapper}>
             <FormButton btnStyle="submit">Save</FormButton>

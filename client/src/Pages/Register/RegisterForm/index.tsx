@@ -37,15 +37,19 @@ export const RegisterForm = ({ onSubmit, emailError }: FormProps) => {
       <form
         onSubmit={handleSubmit(handleData)}
         className={styles.formContainer}
+        data-test="register-form"
       >
         <input
           {...register("firstname")}
           placeholder="Firstname"
           name="firstname"
           type="text"
+          data-test="firstname-input"
         />
         <div className={styles.errorWrapper}>
-          <p className={styles.error}>{errors.firstname?.message}</p>
+          <p className={styles.error} data-test="firstname-input-error">
+            {errors.firstname?.message}
+          </p>
         </div>
 
         <input
@@ -53,21 +57,27 @@ export const RegisterForm = ({ onSubmit, emailError }: FormProps) => {
           placeholder="Lastname"
           name="lastname"
           type="text"
+          data-test="lastname-input"
         />
         <div className={styles.errorWrapper}>
-          <p className={styles.error}>{errors.lastname?.message}</p>
+          <p className={styles.error} data-test="lastname-input-error">
+            {errors.lastname?.message}
+          </p>
         </div>
         <input
           {...register("email")}
           placeholder="Email"
           name="email"
           type="text"
+          data-test="email-input"
         />
         <div className={styles.errorWrapper}>
           {emailError && !errors.email?.message && (
             <p className={styles.Emailerror}>{emailError}</p>
           )}
-          <p className={styles.error}>{errors.email?.message}</p>
+          <p className={styles.error} data-test="email-input-error">
+            {errors.email?.message}
+          </p>
         </div>
 
         <input
@@ -75,9 +85,10 @@ export const RegisterForm = ({ onSubmit, emailError }: FormProps) => {
           placeholder="Password"
           name="password"
           type="password"
+          data-test="password-input"
         />
         <div className={styles.errorWrapper}>
-          <p className={styles.error}>
+          <p className={styles.error} data-test="password-input-error">
             {errors.password?.message ||
               (errors.repeatPassword && "Passwords must match")}
           </p>
@@ -87,9 +98,10 @@ export const RegisterForm = ({ onSubmit, emailError }: FormProps) => {
           placeholder="Repeat password"
           name="repeatPassword"
           type="password"
+          data-test="repeat-password-input"
         />
         <div className={styles.errorWrapper}>
-          <p className={styles.error}>
+          <p className={styles.error} data-test="repeatpassword-input-error">
             {errors.password?.message ||
               (errors.repeatPassword && "Passwords must match")}
           </p>

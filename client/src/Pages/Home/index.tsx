@@ -20,8 +20,6 @@ export const Home = () => {
     }
   });
 
-  console.log("FILTERED POST", filteredPosts);
-
   const sortedPostsByNewest = [...filteredPosts].sort((a, b) => {
     const first = new Date(a.creationDate).getTime();
     const second = new Date(b.creationDate).getTime();
@@ -42,7 +40,7 @@ export const Home = () => {
     : sortedPostsByOldest.slice(indexOfFirstPost, indexOfLastPost);
 
   const nPages = Math.ceil(posts.length / postsPerPage);
-  const paginate = currentPosts.length >= 10 || currentPage >= 1;
+  const paginate = filteredPosts.length > 10 || currentPage > 1;
 
   useEffect(() => {
     const token = localStorage.getItem("token");

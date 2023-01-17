@@ -50,7 +50,9 @@ export const Layout = () => {
             </li>
             <li>
               <Link to="/posts/create-new">
-                <h3 className={styles.underline}>NEW POST</h3>
+                <h3 className={styles.underline} data-test="nav-create-new">
+                  NEW POST
+                </h3>
               </Link>
             </li>
             <li onClick={handleLogOut}>
