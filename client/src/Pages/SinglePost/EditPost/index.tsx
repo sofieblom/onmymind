@@ -105,6 +105,7 @@ export const EditPost = () => {
             {...register("content")}
             placeholder="What's on your mind?"
             name="content"
+            data-test="edit-post-content"
           />
           <div className={styles.errorWrapper}>
             <p className={styles.errorMessage}>{errors.content?.message}</p>

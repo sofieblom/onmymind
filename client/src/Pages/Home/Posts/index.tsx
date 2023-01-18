@@ -44,6 +44,7 @@ export const Posts = ({ filteredPosts }: PostsProps) => {
             <div className={styles.desktopItem}>
               <div
                 className={styles.toggleWrapper}
+                data-test="post-wrapper"
                 onClick={() => togglePost(post._id)}
               >
                 <div className={styles.infoWrapper}>
@@ -66,7 +67,7 @@ export const Posts = ({ filteredPosts }: PostsProps) => {
                 <p className={styles.content}>{post.content}</p>
                 <Link to={"/post/edit/" + post._id} key={post._id}>
                   <div className={styles.editWrapper}>
-                    <img src={edit} width={20} />
+                    <img src={edit} width={20} data-test="post-edit-button" />
                   </div>
                 </Link>
               </div>

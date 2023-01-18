@@ -2,10 +2,13 @@
 
 .header {
   width: 100%;
-  height: 20vh;
+  height: 15vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: 769px) {
+    height: 20vh;
+  }
 }
 
 .navigation {
