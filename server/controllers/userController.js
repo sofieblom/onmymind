@@ -78,7 +78,6 @@ const loginUser = async (req, res) => {
             }else {
                 console.log("incorrect password")
                 res.status(401).json({ passwordError: "Incorrect password" })
-                // throw new Error ("Invalid email or password")
             }
         })
         .catch((error) => {
