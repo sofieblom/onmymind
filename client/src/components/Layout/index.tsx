@@ -42,7 +42,7 @@ export const Layout = () => {
           Journal of today
         </h1>
         <nav className={styles.navigation}>
-          <ul>
+          <ul className={styles.ul}>
             <li className={styles.navlink}>
               <Link to="/home">
                 <h3 className={styles.underline}>MY POSTS</h3>

@@ -11,13 +11,7 @@ export const Register = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<IFormInputs> = async (data: IFormInputs) => {
-    if (
-      data.firstname &&
-      data.lastname &&
-      data.email &&
-      data.password &&
-      data.repeatPassword
-    ) {
+    if (data) {
       const registerUser: IFormInputs = {
         firstname: data.firstname,
         lastname: data.lastname,

@@ -17,12 +17,11 @@ export const DeletePost = () => {
   const token = localStorage.getItem("token");
 
   const handleDelete = () => {
-    console.log("delete");
     axios
       .delete(`http://localhost:5000/posts/delete/${params.id}`, {
         headers: { "x-api-token": token },
       })
-      .then((response) => {
+      .then(() => {
         navigate("/home");
       });
   };
@@ -30,7 +29,7 @@ export const DeletePost = () => {
   return (
     <Button
       variant="contained"
-      type="submit"
+      type="button"
       sx={styles}
       onClick={handleDelete}
     >

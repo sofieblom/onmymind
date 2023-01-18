@@ -9,7 +9,6 @@ export const HamburgerMeny = ({
   isOpen,
   setIsOpen,
 }: HamburgerMenyProps) => {
-  //   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       {!isOpen ? (

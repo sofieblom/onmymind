@@ -68,7 +68,7 @@ export const EditPost = () => {
       .put(`http://localhost:5000/posts/edit/${params.id}`, updatedPost, {
         headers: { "x-api-token": token },
       })
-      .then((response) => {
+      .then(() => {
         navigate(`/post/${params.id}`);
       });
   };

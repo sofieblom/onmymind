@@ -1,11 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { PostType } from "../Home";
 import { DeletePost } from "./DeletePost";
-import { EditPost } from "./EditPost";
 import styles from "./styles.module.scss";
-import Button from "@mui/material/Button";
 import { FormButton } from "../../components/Button";
 
 export const SinglePost = () => {

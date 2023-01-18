@@ -4,7 +4,6 @@ import * as yup from "yup";
 import styles from "./styles.module.scss";
 import { FormButton } from "../../../components/Button";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
 
 const schema = yup.object().shape({
   firstname: yup.string().required(),
