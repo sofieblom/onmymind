@@ -1,13 +1,12 @@
-const User = require("../models/UserModel.js");
 const Post = require("../models/PostModel.js");
 
 // Create new post
 const newPost = async (req, res) => {
 
     if(!req.body.title || !req.body.content || !req.body.creationDate) {
-     res.status(400)
-     throw new Error('Please enter all fields')
-    }
+        res.status(400)
+        throw new Error('Please enter all fields')
+        }
     try{
         const post = await Post.create({
             user: req.user.id,
@@ -15,11 +14,8 @@ const newPost = async (req, res) => {
             content: req.body.content,
             creationDate: req.body.creationDate
         })
-
-        post.save().then(post => res.json({
-            message: "NEW POST",
-            post
-        })).catch(err => console.log(err)) 
+        post.save()
+        .catch(err => console.log(err)) 
     }catch(error){
         console.log(error)
     }
@@ -30,17 +26,16 @@ const getPosts = async (req, res) => {
 
     try {
        const posts = await Post.find( { user: req.user.id});
-    if(posts) {
-        res.send(posts)
-    }else{
-        res.status(400)
-        throw new Error('Got no posts')
-    } 
+        if(posts) {
+            res.send(posts)
+        }else{
+            res.status(400)
+            throw new Error('Got no posts')
+        } 
     }catch(error){
         console.log(error)
         res.sendStatus(500)
     }
-    
 }
 
 // Get single post
@@ -58,7 +53,6 @@ const getSinglePost = async (req,res) => {
         console.log(error)
         res.sendStatus(500)
     }
-  
 }
 
 // Edit single post
@@ -93,7 +87,6 @@ const deletePost = async (req, res) => {
     }catch(error){
         console.log(error)
     }
-   
 }
 
 module.exports = {getPosts, newPost, getSinglePost, editPost, deletePost}
