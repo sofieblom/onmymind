@@ -1,0 +1,39 @@
+.container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  max-width: 600px;
+  width: 100%;
+  padding: 16px;
+  margin: 16px;
+  background-color: #4c4c4c9e;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+.btnWrapper {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.heading,
+.content,
+.date {
+  color: #ededed;
+}
+
+.date {
+  font-size: 0.8rem;
+  margin: 0px;
+}
+
+.gap {
+  display: flex;
+  gap: 8px;
+}

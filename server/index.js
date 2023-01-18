@@ -1,15 +1,33 @@
-import express from "express";
-import cors from "cors"
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+require("./database");
+const userRoute = require("./routes/userRoute")
+const postRoute = require("./routes/postRoute")
+const dotenv = require("dotenv");
+dotenv.config();
 
-const server = express();
-server.use(cors());
+const app = express();
 const PORT = 5000;
 
-server.get('/api', (req, res) => {
-    console.log("Tjena")
-    res.send('Hello World!')
+app.use(cors());   
+
+app.use(cookieParser());
+app.use(
+  bodyParser.urlencoded({
+    extended: false
   })
-  
-  server.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`)
-  })
+);
+app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+})
+
+app.use("/user", userRoute);
+app.use("/posts", postRoute);
+
+app.listen(PORT, () => {
+  console.log(`Server up and running on port ${PORT}`)
+})
+module.exports = app;

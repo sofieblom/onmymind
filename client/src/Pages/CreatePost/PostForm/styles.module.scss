@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.wrapper {
+  background-color: #4c4c4c9e;
+  padding: 16px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+  margin: 16px;
+  height: fit-content;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+}
+
+input {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+  height: 300px;
+}
+
+.errorMessage {
+  font-size: 11px;
+  margin: 0px 0px 8px 0px;
+  display: block;
+  color: red;
+}
+
+.inputField {
+  width: 100%;
+  height: 35px;
+  background-color: #f1f1f1;
+  border: none;
+  padding: 0px 8px;
+}
+
+.textareaField {
+  width: 100%;
+  background-color: #f1f1f1;
+  border: none;
+  padding: 8px;
+}
+
+.errorWrapper {
+  width: 100%;
+}
+
+.btnWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}

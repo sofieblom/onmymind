@@ -1,0 +1,63 @@
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.wrapper {
+  background-color: #4c4c4c9e;
+  padding: 16px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+  margin: 16px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.formContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  padding: 16px;
+}
+
+.errorMessage {
+  font-size: 11px;
+  margin: 0px 0px 8px 0px;
+  display: block;
+  color: red;
+}
+
+.errorWrapper {
+  width: 100%;
+}
+
+.btnWrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 8px;
+}
+
+textarea {
+  padding: 0px 8px;
+}
+/*# sourceMappingURL=styles.module.css.map */

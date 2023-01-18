@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.wrapper {
+  background-color: #4c4c4c9e;
+  padding: 16px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+  margin: 16px;
+  height: fit-content;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+}
+
+.errorMessage {
+  font-size: 11px;
+  margin: 0px 0px 8px 0px;
+  display: block;
+  color: red;
+}
+
+.errorWrapper {
+  width: 100%;
+}
+
+.btnWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+textarea {
+  padding: 0px 8px;
+}

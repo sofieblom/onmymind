@@ -1,0 +1,51 @@
+.container {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wrapper {
+  max-width: 600px;
+  width: 100%;
+  padding: 16px;
+  margin: 16px;
+  background-color: #4c4c4c9e;
+  border-radius: 10px;
+}
+
+.btnWrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 8px;
+}
+
+.heading,
+.content,
+.date {
+  color: #ededed;
+}
+
+.date {
+  font-size: 0.8rem;
+  margin: 0px;
+}
+
+.gap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+}
+/*# sourceMappingURL=styles.module.css.map */

@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Inspiration&display=swap");
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  min-height: 65vh;
+  height: 100%;
+  margin-bottom: 24px;
+  @media screen and (max-width: 768px) {
+    margin-top: 32px;
+    background-color: rgb(33 33 33);
+    padding-top: 32px;
+    border-radius: 30px 30px 0px 0px;
+    height: 100%;
+  }
+}
+
+.wrapper {
+  width: 80%;
+  background-color: rgb(33 33 33);
+  position: relative;
+  @media screen and (max-width: 768px) {
+    width: 95%;
+    background-color: rgb(33 33 33);
+    border-bottom: 1px solid #d8d3d330;
+  }
+
+  @media screen and (min-width: 1201px) {
+    width: 1000px;
+  }
+}
+
+.title {
+  margin: 16px 0px 0px 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ededed;
+  font-size: 1.1rem;
+
+  @media screen and (max-width: 768px) {
+    padding: 0px;
+  }
+}
+
+.content {
+  font-size: 0.9rem;
+  color: #ededed;
+
+  @media screen and (max-width: 768px) {
+    padding: 0px;
+  }
+}
+
+.date {
+  color: #ededed;
+  font-size: 0.7rem;
+  font-weight: lighter;
+  font-family: Arial, Helvetica, sans-serif;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 8px;
+    font-size: 0.7rem;
+    color: #ededed;
+  }
+}
+
+.toggleWrapper {
+  display: flex;
+  margin-left: 16px;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.handleWrapper {
+  height: 100%;
+  cursor: pointer;
+  padding: 16px;
+}
+
+.handlePost {
+  color: #ededed;
+  font-size: 1.5rem;
+}
+
+.contentWrapper {
+  padding: 0px 16px;
+  height: 0px;
+  overflow: hidden;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.35s ease;
+}
+
+.showContent {
+  padding: 0px 16px;
+  height: auto;
+  z-index: 1000;
+  transform: scaleY(1);
+}
+
+.editWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+  :hover {
+    opacity: 70%;
+  }
+}
+
+.currentWrapper {
+  z-index: 10;
+}

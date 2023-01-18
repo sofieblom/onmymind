@@ -1,0 +1,46 @@
+.container {
+  min-height: 80vh;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  margin-top: 28px;
+}
+
+.filterContainer {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sortContainer {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.sort {
+  font-size: 0.7rem;
+  color: #ededed;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.noPostContainer {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.noPostText {
+  color: #ededed;
+  font-size: 2rem;
+}

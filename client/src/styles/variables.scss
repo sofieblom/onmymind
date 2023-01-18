@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Inspiration&display=swap");
+
+:root {
+  $heading-font: "Inspiration", cursive;
+
+  --color-inputBg: #f1f1f1;
+  --coolor-submitBtn: #8caa91;
+  --color-darkbg: #171717;
+  --color-textDark: #333232;
+  --color-textWhite: #ededed;
+
+  --color-gradientbg: linear-gradient(
+    90deg,
+    rgba(24, 24, 24, 1) 0%,
+    rgba(78, 85, 88, 1) 75%,
+    rgb(97 104 107) 100%
+  );
+
+  $mobile: 480px;
+  $tablet: 768px;
+  $small-screen: 1024px;
+  $medium-screen: 1200px;
+
+  $spacing: 16px;
+}

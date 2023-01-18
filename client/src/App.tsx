@@ -1,39 +1,35 @@
-import { useEffect, useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import axios from "axios";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Login } from "./Pages/Login";
+import { Register } from "./Pages/Register";
+import { Home } from "./Pages/Home";
+import { CreatePost } from "./Pages/CreatePost";
+import { Layout } from "./components/Layout";
+import { ProtectedRoute } from "./Pages/ProtectedRoute";
+import { NotFound } from "./Pages/NotFound";
+import { SinglePost } from "./Pages/SinglePost";
+import { EditPost } from "./Pages/SinglePost/EditPost";
+import "./styles/variables.scss";
 
 function App() {
-  const [testing, setTesting] = useState("");
-  const test = async () => {
-    axios.get("http://localhost:5000/api").then((response) => {
-      setTesting(response.data);
-    });
-  };
-
-  console.log("testing", testing);
-
-  useEffect(() => {
-    test();
-  }, []);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Layout />}>
+            <Route element={<ProtectedRoute />}>
+              <Route path="/home" element={<Home />} />
+              <Route path="/post/:id" element={<SinglePost />} />
+              <Route path="/post/edit/:id" element={<EditPost />} />
+              <Route path="/posts/create-new" element={<CreatePost />} />
+            </Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
