@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { HamburgerMeny } from "../HamburgerMenu";
 import styles from "./styles.module.scss";
-import image from "../../assets/meditation.png";
+import image from "../../assets/images.png";
 import cx from "classnames";
 
 export const Layout = () => {
@@ -43,19 +43,19 @@ export const Layout = () => {
         </h1>
         <nav className={styles.navigation}>
           <ul>
-            <li>
+            <li className={styles.navlink}>
               <Link to="/home">
                 <h3 className={styles.underline}>MY POSTS</h3>
               </Link>
             </li>
-            <li>
+            <li className={styles.navlink}>
               <Link to="/posts/create-new">
                 <h3 className={styles.underline} data-test="nav-create-new">
                   NEW POST
                 </h3>
               </Link>
             </li>
-            <li onClick={handleLogOut}>
+            <li onClick={handleLogOut} className={styles.navlink}>
               <h3 className={styles.underline}>LOG OUT</h3>
             </li>
           </ul>

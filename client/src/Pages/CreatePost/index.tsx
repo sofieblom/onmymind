@@ -12,7 +12,6 @@ export const CreatePost = () => {
         title: data.title,
         content: data.content,
         creationDate: data.creationDate,
-        // creationDate: new Date(data.creationDate),
       };
       const token = localStorage.getItem("token");
 

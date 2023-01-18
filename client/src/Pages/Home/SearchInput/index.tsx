@@ -12,12 +12,6 @@ export const SearchInput = ({ posts, setInputText }: SearchInputProps) => {
   ) => {
     e.preventDefault();
     setSearchInput(e.target.value);
-    // if (searchInput.length > 0) {
-    //   posts.filter((post) => {
-    //     console.log("filtered posts", post.title.match(searchInput));
-    //     return post.title.match(searchInput);
-    //   });
-    // }
   };
 
   useEffect(() => {
@@ -30,25 +24,9 @@ export const SearchInput = ({ posts, setInputText }: SearchInputProps) => {
         className={styles.searchInput}
         type="search"
         placeholder="Search for title"
-        // style={{ width: "300px" }}
         onChange={(e) => handleChange(e)}
         value={searchInput}
       />
-
-      {/* <Input
-        placeholder="Search by title"
-        type="search"
-        onChange={(e) => handleChange(e)}
-        margin="none"
-        size="small"
-        className={styles.test}
-        sx={{
-          input: {
-            color: "white",
-            margin: "0px",
-          },
-        }}
-      /> */}
     </>
   );
 };

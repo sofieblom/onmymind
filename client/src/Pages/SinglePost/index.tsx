@@ -42,7 +42,7 @@ export const SinglePost = () => {
         <div className={styles.btnWrapper}>
           <p className={styles.date}>{post?.creationDate.split("T")[0]}</p>
           <div className={styles.gap}>
-            <FormButton btnStyle="submit" onClick={handleEdit}>
+            <FormButton btnStyle="submit" type="submit" onClick={handleEdit}>
               Edit
             </FormButton>
             <DeletePost />

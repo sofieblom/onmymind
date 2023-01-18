@@ -84,7 +84,9 @@ export const PostForm = ({ onSubmit }: PostFormProps) => {
             </p>
           </div>
           <div className={styles.btnWrapper}>
-            <FormButton btnStyle="submit">Save</FormButton>
+            <FormButton btnStyle="submit" type="submit">
+              Save
+            </FormButton>
           </div>
         </form>
       </div>

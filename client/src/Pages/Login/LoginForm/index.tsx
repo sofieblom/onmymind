@@ -78,7 +78,9 @@ export const LoginForm = ({
             </p>
           )}
         </div>
-        <FormButton btnStyle="submit">Log in</FormButton>
+        <FormButton btnStyle="submit" type="submit">
+          Log in
+        </FormButton>
       </form>
 
       <p className={styles.createAccount}>

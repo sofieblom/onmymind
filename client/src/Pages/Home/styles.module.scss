@@ -30,3 +30,17 @@
   padding: 8px;
   cursor: pointer;
 }
+
+.noPostContainer {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.noPostText {
+  color: #ededed;
+  font-size: 2rem;
+}

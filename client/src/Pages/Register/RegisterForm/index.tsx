@@ -19,7 +19,6 @@ export const RegisterForm = ({ onSubmit, emailError }: FormProps) => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm<IFormInputs>({
     resolver: yupResolver(schema),
   });
@@ -107,10 +106,16 @@ export const RegisterForm = ({ onSubmit, emailError }: FormProps) => {
           </p>
         </div>
         <div className={styles.btnWrapper}>
-          <FormButton btnStyle="cancel" onClick={() => navigate("/")}>
+          <FormButton
+            btnStyle="cancel"
+            onClick={() => navigate("/")}
+            type="button"
+          >
             Cancel
           </FormButton>
-          <FormButton btnStyle="submit">Create account</FormButton>
+          <FormButton btnStyle="submit" type="submit">
+            Create account
+          </FormButton>
         </div>
       </form>
     </div>

@@ -32,17 +32,17 @@ export const HamburgerMeny = ({
           <div className={styles.hamburger}>
             <nav className={styles.nav}>
               <ul className={styles.ul}>
-                <li>
+                <li className={styles.navlink}>
                   <Link to="/home" onClick={() => setIsOpen(false)}>
                     <h3>MY POSTS</h3>
                   </Link>
                 </li>
-                <li>
+                <li className={styles.navlink}>
                   <Link to="/posts/create-new" onClick={() => setIsOpen(false)}>
                     <h3>NEW POST</h3>
                   </Link>
                 </li>
-                <li onClick={handleLogOut}>
+                <li onClick={handleLogOut} className={styles.navlink}>
                   <h3>LOG OUT</h3>
                 </li>
               </ul>

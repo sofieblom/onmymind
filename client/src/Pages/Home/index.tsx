@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { FormButton } from "../../components/Button";
 import { Paginate } from "./Paginate";
 import { Posts } from "./Posts";
 import { SearchInput } from "./SearchInput";
@@ -11,6 +13,7 @@ export const Home = () => {
   const [postsPerPage] = useState(10);
   const [sortByNewest, setSortByNewest] = useState(true);
   const [inputText, setInputText] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const filteredPosts = posts.filter((post) => {
     if (inputText === "") {
@@ -43,6 +46,7 @@ export const Home = () => {
   const paginate = filteredPosts.length > 10 || currentPage > 1;
 
   useEffect(() => {
+    setLoading(true);
     const token = localStorage.getItem("token");
     axios
       .get("http://localhost:5000/posts", {
@@ -50,31 +54,40 @@ export const Home = () => {
       })
       .then((response) => {
         setPosts(response.data);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
 
+  if (loading) return null;
+
   return (
     <div className={styles.container}>
-      <div className={styles.filterContainer}>
-        <SearchInput posts={posts} setInputText={setInputText} />
-        <div className={styles.sortContainer}>
-          <p className={styles.sort} onClick={() => setSortByNewest(true)}>
-            SORT BY NEWEST
-          </p>
-          <p className={styles.sort} onClick={() => setSortByNewest(false)}>
-            SORT BY OLDEST
-          </p>
+      {posts.length > 0 ? (
+        <div className={styles.filterContainer}>
+          <SearchInput posts={posts} setInputText={setInputText} />
+          <div className={styles.sortContainer}>
+            <p className={styles.sort} onClick={() => setSortByNewest(true)}>
+              SORT BY NEWEST
+            </p>
+            <p className={styles.sort} onClick={() => setSortByNewest(false)}>
+              SORT BY OLDEST
+            </p>
+          </div>
         </div>
-      </div>
-      <Posts
-        // posts={currentPosts}
-        // setSortByNewest={setSortByNewest}
-        // allPosts={sortedPostsByNewest}
-        filteredPosts={currentPosts}
-      />
+      ) : (
+        <div className={styles.noPostContainer}>
+          <p className={styles.noPostText}>You haven't written a post yet</p>
+          <Link to="/posts/create-new">
+            <FormButton type="button" btnStyle="submit">
+              Create your first post
+            </FormButton>
+          </Link>
+        </div>
+      )}
+      <Posts filteredPosts={currentPosts} />
 
       {paginate && (
         <Paginate

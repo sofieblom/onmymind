@@ -5,6 +5,7 @@ interface ButtonProps {
   children?: React.ReactNode;
   btnStyle: "submit" | "cancel";
   onClick?: () => void;
+  type: "submit" | "button";
 }
 
 const styles: Record<string, any> = {
@@ -23,11 +24,16 @@ const styles: Record<string, any> = {
   },
 };
 
-export const FormButton = ({ children, btnStyle, onClick }: ButtonProps) => {
+export const FormButton = ({
+  children,
+  btnStyle,
+  onClick,
+  type,
+}: ButtonProps) => {
   return (
     <Button
       variant="contained"
-      type="submit"
+      type={type}
       sx={styles[btnStyle]}
       onClick={onClick}
     >

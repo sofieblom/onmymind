@@ -113,7 +113,9 @@ export const EditPost = () => {
 
           <div className={styles.btnWrapper}>
             <DeletePost />
-            <FormButton btnStyle="submit">Save</FormButton>
+            <FormButton btnStyle="submit" type="submit">
+              Save
+            </FormButton>
           </div>
         </form>
       </div>

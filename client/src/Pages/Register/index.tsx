@@ -18,7 +18,6 @@ export const Register = () => {
       data.password &&
       data.repeatPassword
     ) {
-      console.log("IIIIIF");
       const registerUser: IFormInputs = {
         firstname: data.firstname,
         lastname: data.lastname,
@@ -30,15 +29,12 @@ export const Register = () => {
         .then((response) => {
           if (response.status === 200) {
             navigate("/");
-            console.log(response.data);
           }
         })
         .catch((error) => {
           setEmailError(error.response.data.email);
           console.log(error);
         });
-    } else {
-      console.log("bajs");
     }
   };
 

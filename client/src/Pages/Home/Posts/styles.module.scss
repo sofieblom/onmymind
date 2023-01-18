@@ -23,7 +23,6 @@
   width: 80%;
   background-color: rgb(33 33 33);
   position: relative;
-
   @media screen and (max-width: 768px) {
     width: 95%;
     background-color: rgb(33 33 33);
@@ -99,6 +98,7 @@
 .showContent {
   padding: 0px 16px;
   height: auto;
+  z-index: 1000;
   transform: scaleY(1);
 }
 
@@ -110,4 +110,8 @@
   :hover {
     opacity: 70%;
   }
+}
+
+.currentWrapper {
+  z-index: 10;
 }
